@@ -441,6 +441,7 @@ let lng = checkoutData.lng;
 
 let desa = checkoutData.desa;
 let kecamatan = checkoutData.kecamatan;
+let alamatLengkap = checkoutData.alamatLengkap || "-";
 
 let linkMaps="https://www.google.com/maps/search/?api=1&query="+lat+","+lng;
 
@@ -517,8 +518,10 @@ detail+
 "━━━━━━━━━━━━━━━━━━━━\n"+
 "📍 LOKASI PENGIRIMAN\n"+
 "━━━━━━━━━━━━━━━━━━━━\n"+
+"Alamat     : "+alamatLengkap+"\n"+
 "Desa       : "+desa+"\n"+
 "Kecamatan  : "+kecamatan+"\n"+
+"Google Maps:\n"+
 linkMaps+"\n\n"+
 
 "━━━━━━━━━━━━━━━━━━━━\n"+
