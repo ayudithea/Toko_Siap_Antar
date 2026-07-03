@@ -1050,11 +1050,31 @@ font-weight:bold;
 margin:10px 0;
 }
 
+#zoomCart,
+#zoomWA{
+    flex:1;
+    height:52px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:10px;
+    font-size:17px;
+    font-weight:bold;
+    text-decoration:none;
+    cursor:pointer;
+}
+
 #zoomCart{
-width:100%;
-padding:18px;
-font-size:30px;      /* sebelumnya 20px */
-border-radius:10px;
+    border:none;
+    color:#fff;
+    background:linear-gradient(145deg,#f59e0b,#ea580c);
+    box-shadow:0 6px 15px rgba(234,88,12,.35);
+}
+
+#zoomWA{
+    color:#fff;
+    background:linear-gradient(145deg,#25D366,#128C7E);
+    box-shadow:0 6px 15px rgba(37,211,102,.35);
 }
 
 @keyframes zoomIn{
