@@ -123,9 +123,7 @@ Belum memilih lokasi
 
 <input type="text" id="namaPembeli" placeholder="Nama Pembeli">
 <input type="tel" id="waPembeli" placeholder="Nomor WhatsApp Aktif">
-<input type="text"
-id="alamatLengkap"
-placeholder="Alamat Lengkap (Nama Jalan / Blok / No Rumah)"
+<input type="text" id="alamatLengkap" placeholder="Alamat Lengkap (Nama Jalan / Blok / No Rumah)"
 style="width:95%;margin:10px;padding:10px;border-radius:8px;border:1px solid #ccc;">
 <input type="text" id="manualLokasi" 
 placeholder="Alamat lengkap / Link Google Maps (jika lokasi tidak akurat)"
@@ -287,7 +285,8 @@ return;
 
 let namaPembeli = document.getElementById("namaPembeli").value.trim();
 let noWa = document.getElementById("waPembeli").value.trim();
-
+let alamatLengkap = document.getElementById("alamatLengkap").value.trim();
+  
 if(!namaPembeli){
 popup("Isi nama pembeli dulu");
 return;
@@ -297,7 +296,6 @@ if(!noWa){
 popup("Isi nomor WhatsApp dulu");
 return;
 }
-  let alamatLengkap = document.getElementById("alamatLengkap").value.trim();
 
 if(!alamatLengkap){
     popup("Isi alamat lengkap dulu");
