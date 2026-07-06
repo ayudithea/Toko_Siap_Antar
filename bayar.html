@@ -150,12 +150,28 @@ Checkout
 
 <div id="transferBox" style="display:none">
 
-<div class="pay" onclick="pilihTransfer('BRI','0046 0105 1342 504','INA KHOZINATUL ASROR',this)">
+<div class="pay" onclick="pilihTransfer('BRI','004601051342504','INA KHOZINATUL ASROR',this)">
 🏦 Bank BRI
+</div>
+
+<div class="pay" onclick="pilihTransfer('BCA','1234567890','A YUDI THEA',this)">
+🏦 Bank BCA
+</div>
+
+<div class="pay" onclick="pilihTransfer('MANDIRI','1234567890123','A YUDI THEA',this)">
+🏦 Bank Mandiri
+</div>
+
+<div class="pay" onclick="pilihTransfer('SeaBank','901234567890','A YUDI THEA',this)">
+🏦 SeaBank
 </div>
 
 <div class="pay" onclick="pilihTransfer('DANA','082319264646','YUDI ALIYUDIN',this)">
 💳 DANA
+</div>
+
+<div class="pay" onclick="pilihQRIS()">
+📱 QRIS
 </div>
 
 </div>
@@ -207,15 +223,13 @@ Total <span id="jumlahItem"></span> Produk
 <span>Total Bayar</span>
 <span id="tTotal"></span>
 </div>
-
 <button
 id="btnPesan"
 class="btn"
 style="display:none"
-onclick="buatPesanan()">
+onclick="konfirmasiTransfer()">
 Buat Pesanan
 </button>
-
 </div>
 
 
@@ -396,9 +410,32 @@ OK
 
 document.body.appendChild(popup);
 }
-𝚏𝚞𝚗𝚌𝚝𝚒𝚘𝚗 𝚌𝚘𝚙𝚢𝚁𝚎𝚔(){
-𝚗𝚊𝚟𝚒𝚐𝚊𝚝𝚘𝚛.𝚌𝚕𝚒𝚙𝚋𝚘𝚊𝚛𝚍.𝚠𝚛𝚒𝚝𝚎𝚃𝚎𝚡𝚝(𝚍𝚘𝚌𝚞𝚖𝚎𝚗𝚝.𝚐𝚎𝚝𝙴𝚕𝚎𝚖𝚎𝚗𝚝𝙱𝚢𝙸𝚍("𝚗𝚘𝚁𝚎𝚔").𝚒𝚗𝚗𝚎𝚛𝚃𝚎𝚡𝚝);
-𝚊𝚕𝚎𝚛𝚝("𝙽𝚘𝚖𝚘𝚛 𝚛𝚎𝚔𝚎𝚗𝚒𝚗𝚐 𝚋𝚎𝚛𝚑𝚊𝚜𝚒𝚕 𝚍𝚒𝚜𝚊𝚕𝚒𝚗");
+function copyRek(){
+
+navigator.clipboard.writeText(
+document.getElementById("noRek").innerText
+);
+
+let notif=document.createElement("div");
+
+notif.innerHTML="✅ Nomor rekening berhasil disalin";
+
+notif.style.position="fixed";
+notif.style.bottom="30px";
+notif.style.left="50%";
+notif.style.transform="translateX(-50%)";
+notif.style.background="#16a34a";
+notif.style.color="#fff";
+notif.style.padding="10px 18px";
+notif.style.borderRadius="8px";
+notif.style.zIndex="99999";
+
+document.body.appendChild(notif);
+
+setTimeout(()=>{
+notif.remove();
+},2000);
+
 }
 
 𝚏𝚞𝚗𝚌𝚝𝚒𝚘𝚗 𝚕𝚊𝚗𝚓𝚞𝚝𝚃𝚛𝚊𝚗𝚜𝚏𝚎𝚛(){
@@ -406,8 +443,83 @@ document.body.appendChild(popup);
 𝚍𝚘𝚌𝚞𝚖𝚎𝚗𝚝.𝚐𝚎𝚝𝙴𝚕𝚎𝚖𝚎𝚗𝚝𝙱𝚢𝙸𝚍("𝚋𝚝𝚗𝙿𝚎𝚜𝚊𝚗").𝚜𝚝𝚢𝚕𝚎.𝚍𝚒𝚜𝚙𝚕𝚊𝚢="𝚋𝚕𝚘𝚌𝚔";
 }
 /* BUAT PESANAN */
+𝚏𝚞𝚗𝚌𝚝𝚒𝚘𝚗 𝚔𝚘𝚗𝚏𝚒𝚛𝚖𝚊𝚜𝚒𝚃𝚛𝚊𝚗𝚜𝚏𝚎𝚛(){
 
-function buatPesanan(){
+𝚕𝚎𝚝 𝚋𝚘𝚡=𝚍𝚘𝚌𝚞𝚖𝚎𝚗𝚝.𝚌𝚛𝚎𝚊𝚝𝚎𝙴𝚕𝚎𝚖𝚎𝚗𝚝("𝚍𝚒𝚟");
+
+𝚋𝚘𝚡.𝚒𝚍="𝚙𝚘𝚙𝚞𝚙𝙺𝚘𝚗𝚏𝚒𝚛𝚖𝚊𝚜𝚒";
+
+𝚋𝚘𝚡.𝚜𝚝𝚢𝚕𝚎.𝚙𝚘𝚜𝚒𝚝𝚒𝚘𝚗="𝚏𝚒𝚡𝚎𝚍";
+𝚋𝚘𝚡.𝚜𝚝𝚢𝚕𝚎.𝚝𝚘𝚙="0";
+𝚋𝚘𝚡.𝚜𝚝𝚢𝚕𝚎.𝚕𝚎𝚏𝚝="0";
+𝚋𝚘𝚡.𝚜𝚝𝚢𝚕𝚎.𝚠𝚒𝚍𝚝𝚑="100%";
+𝚋𝚘𝚡.𝚜𝚝𝚢𝚕𝚎.𝚑𝚎𝚒𝚐𝚑𝚝="100%";
+𝚋𝚘𝚡.𝚜𝚝𝚢𝚕𝚎.𝚋𝚊𝚌𝚔𝚐𝚛𝚘𝚞𝚗𝚍="𝚛𝚐𝚋𝚊(0,0,0,.6)";
+𝚋𝚘𝚡.𝚜𝚝𝚢𝚕𝚎.𝚍𝚒𝚜𝚙𝚕𝚊𝚢="𝚏𝚕𝚎𝚡";
+𝚋𝚘𝚡.𝚜𝚝𝚢𝚕𝚎.𝚊𝚕𝚒𝚐𝚗𝙸𝚝𝚎𝚖𝚜="𝚌𝚎𝚗𝚝𝚎𝚛";
+𝚋𝚘𝚡.𝚜𝚝𝚢𝚕𝚎.𝚓𝚞𝚜𝚝𝚒𝚏𝚢𝙲𝚘𝚗𝚝𝚎𝚗𝚝="𝚌𝚎𝚗𝚝𝚎𝚛";
+𝚋𝚘𝚡.𝚜𝚝𝚢𝚕𝚎.𝚣𝙸𝚗𝚍𝚎𝚡="99999";
+
+𝚋𝚘𝚡.𝚒𝚗𝚗𝚎𝚛𝙷𝚃𝙼𝙻=`
+
+<𝚍𝚒𝚟 𝚜𝚝𝚢𝚕𝚎="
+𝚋𝚊𝚌𝚔𝚐𝚛𝚘𝚞𝚗𝚍:#𝚏𝚏𝚏;
+𝚠𝚒𝚍𝚝𝚑:90%;
+𝚖𝚊𝚡-𝚠𝚒𝚍𝚝𝚑:360𝚙𝚡;
+𝚙𝚊𝚍𝚍𝚒𝚗𝚐:20𝚙𝚡;
+𝚋𝚘𝚛𝚍𝚎𝚛-𝚛𝚊𝚍𝚒𝚞𝚜:15𝚙𝚡;
+𝚝𝚎𝚡𝚝-𝚊𝚕𝚒𝚐𝚗:𝚌𝚎𝚗𝚝𝚎𝚛;
+">
+
+<𝚑3 𝚜𝚝𝚢𝚕𝚎="𝚌𝚘𝚕𝚘𝚛:#16𝚊34𝚊">
+𝙺𝚘𝚗𝚏𝚒𝚛𝚖𝚊𝚜𝚒 𝚃𝚛𝚊𝚗𝚜𝚏𝚎𝚛
+</𝚑3>
+
+<𝚙>
+
+𝙰𝚙𝚊𝚔𝚊𝚑 𝙰𝚗𝚍𝚊 𝚜𝚞𝚍𝚊𝚑 𝚖𝚎𝚕𝚊𝚔𝚞𝚔𝚊𝚗 𝚝𝚛𝚊𝚗𝚜𝚏𝚎𝚛?<𝚋𝚛><𝚋𝚛>
+
+𝙹𝚒𝚔𝚊 𝚜𝚞𝚍𝚊𝚑, 𝚔𝚕𝚒𝚔 <𝚋>𝙾𝙺</𝚋> 𝚕𝚊𝚕𝚞 𝚜𝚎𝚛𝚝𝚊𝚔𝚊𝚗
+<𝚋>𝚋𝚞𝚔𝚝𝚒 𝚝𝚛𝚊𝚗𝚜𝚏𝚎𝚛</𝚋> 𝚋𝚎𝚛𝚜𝚊𝚖𝚊 𝚙𝚎𝚜𝚊𝚗𝚊𝚗 𝙰𝚗𝚍𝚊 𝚖𝚎𝚕𝚊𝚕𝚞𝚒 𝚆𝚑𝚊𝚝𝚜𝙰𝚙𝚙.
+
+</𝚙>
+
+<𝚍𝚒𝚟 𝚜𝚝𝚢𝚕𝚎="𝚖𝚊𝚛𝚐𝚒𝚗-𝚝𝚘𝚙:20𝚙𝚡">
+
+<𝚋𝚞𝚝𝚝𝚘𝚗
+𝚘𝚗𝚌𝚕𝚒𝚌𝚔="𝚍𝚘𝚌𝚞𝚖𝚎𝚗𝚝.𝚐𝚎𝚝𝙴𝚕𝚎𝚖𝚎𝚗𝚝𝙱𝚢𝙸𝚍('𝚙𝚘𝚙𝚞𝚙𝙺𝚘𝚗𝚏𝚒𝚛𝚖𝚊𝚜𝚒').𝚛𝚎𝚖𝚘𝚟𝚎()"
+𝚜𝚝𝚢𝚕𝚎="
+𝚋𝚊𝚌𝚔𝚐𝚛𝚘𝚞𝚗𝚍:#𝚎𝚏4444;
+𝚌𝚘𝚕𝚘𝚛:𝚠𝚑𝚒𝚝𝚎;
+𝚙𝚊𝚍𝚍𝚒𝚗𝚐:10𝚙𝚡 18𝚙𝚡;
+𝚋𝚘𝚛𝚍𝚎𝚛:𝚗𝚘𝚗𝚎;
+𝚋𝚘𝚛𝚍𝚎𝚛-𝚛𝚊𝚍𝚒𝚞𝚜:8𝚙𝚡;
+𝚖𝚊𝚛𝚐𝚒𝚗-𝚛𝚒𝚐𝚑𝚝:10𝚙𝚡;
+">
+𝙱𝚊𝚝𝚊𝚕
+</𝚋𝚞𝚝𝚝𝚘𝚗>
+
+<𝚋𝚞𝚝𝚝𝚘𝚗
+𝚘𝚗𝚌𝚕𝚒𝚌𝚔="𝚕𝚊𝚗𝚓𝚞𝚝𝙿𝚎𝚜𝚊𝚗𝚊𝚗()"
+𝚜𝚝𝚢𝚕𝚎="
+𝚋𝚊𝚌𝚔𝚐𝚛𝚘𝚞𝚗𝚍:#16𝚊34𝚊;
+𝚌𝚘𝚕𝚘𝚛:𝚠𝚑𝚒𝚝𝚎;
+𝚙𝚊𝚍𝚍𝚒𝚗𝚐:10𝚙𝚡 18𝚙𝚡;
+𝚋𝚘𝚛𝚍𝚎𝚛:𝚗𝚘𝚗𝚎;
+𝚋𝚘𝚛𝚍𝚎𝚛-𝚛𝚊𝚍𝚒𝚞𝚜:8𝚙𝚡;
+">
+𝙾𝙺
+</𝚋𝚞𝚝𝚝𝚘𝚗>
+
+</𝚍𝚒𝚟>
+
+</𝚍𝚒𝚟>
+`;
+
+𝚍𝚘𝚌𝚞𝚖𝚎𝚗𝚝.𝚋𝚘𝚍𝚢.𝚊𝚙𝚙𝚎𝚗𝚍𝙲𝚑𝚒𝚕𝚍(𝚋𝚘𝚡);
+
+}
+function lanjutPesanan(){
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 let checkoutData = JSON.parse(localStorage.getItem("checkoutData")) || {};
 
@@ -432,7 +544,74 @@ if(!metode){
 popup("Pilih metode pembayaran dulu");
 return;
 }
+𝚏𝚞𝚗𝚌𝚝𝚒𝚘𝚗 𝚙𝚒𝚕𝚒𝚑𝚀𝚁𝙸𝚂(){
 
+𝚖𝚎𝚝𝚘𝚍𝚎="𝚀𝚁𝙸𝚂";
+
+𝚕𝚎𝚝 𝚙𝚘𝚙𝚞𝚙=𝚍𝚘𝚌𝚞𝚖𝚎𝚗𝚝.𝚌𝚛𝚎𝚊𝚝𝚎𝙴𝚕𝚎𝚖𝚎𝚗𝚝("𝚍𝚒𝚟");
+
+𝚙𝚘𝚙𝚞𝚙.𝚒𝚍="𝚙𝚘𝚙𝚞𝚙𝚃𝚛𝚊𝚗𝚜𝚏𝚎𝚛";
+
+𝚙𝚘𝚙𝚞𝚙.𝚜𝚝𝚢𝚕𝚎.𝚙𝚘𝚜𝚒𝚝𝚒𝚘𝚗="𝚏𝚒𝚡𝚎𝚍";
+𝚙𝚘𝚙𝚞𝚙.𝚜𝚝𝚢𝚕𝚎.𝚒𝚗𝚜𝚎𝚝="0";
+𝚙𝚘𝚙𝚞𝚙.𝚜𝚝𝚢𝚕𝚎.𝚋𝚊𝚌𝚔𝚐𝚛𝚘𝚞𝚗𝚍="𝚛𝚐𝚋𝚊(0,0,0,.6)";
+𝚙𝚘𝚙𝚞𝚙.𝚜𝚝𝚢𝚕𝚎.𝚍𝚒𝚜𝚙𝚕𝚊𝚢="𝚏𝚕𝚎𝚡";
+𝚙𝚘𝚙𝚞𝚙.𝚜𝚝𝚢𝚕𝚎.𝚊𝚕𝚒𝚐𝚗𝙸𝚝𝚎𝚖𝚜="𝚌𝚎𝚗𝚝𝚎𝚛";
+𝚙𝚘𝚙𝚞𝚙.𝚜𝚝𝚢𝚕𝚎.𝚓𝚞𝚜𝚝𝚒𝚏𝚢𝙲𝚘𝚗𝚝𝚎𝚗𝚝="𝚌𝚎𝚗𝚝𝚎𝚛";
+𝚙𝚘𝚙𝚞𝚙.𝚜𝚝𝚢𝚕𝚎.𝚣𝙸𝚗𝚍𝚎𝚡="9999";
+
+𝚙𝚘𝚙𝚞𝚙.𝚒𝚗𝚗𝚎𝚛𝙷𝚃𝙼𝙻=`
+
+<𝚍𝚒𝚟 𝚜𝚝𝚢𝚕𝚎="
+𝚋𝚊𝚌𝚔𝚐𝚛𝚘𝚞𝚗𝚍:#𝚏𝚏𝚏;
+𝚙𝚊𝚍𝚍𝚒𝚗𝚐:20𝚙𝚡;
+𝚋𝚘𝚛𝚍𝚎𝚛-𝚛𝚊𝚍𝚒𝚞𝚜:15𝚙𝚡;
+𝚠𝚒𝚍𝚝𝚑:90%;
+𝚖𝚊𝚡-𝚠𝚒𝚍𝚝𝚑:360𝚙𝚡;
+𝚝𝚎𝚡𝚝-𝚊𝚕𝚒𝚐𝚗:𝚌𝚎𝚗𝚝𝚎𝚛;
+">
+
+<𝚑3>𝙿𝚎𝚖𝚋𝚊𝚢𝚊𝚛𝚊𝚗 𝚀𝚁𝙸𝚂</𝚑3>
+
+<𝚒𝚖𝚐 𝚜𝚛𝚌="𝚚𝚛𝚒𝚜.𝚓𝚙𝚐"
+𝚜𝚝𝚢𝚕𝚎="𝚠𝚒𝚍𝚝𝚑:230𝚙𝚡;𝚋𝚘𝚛𝚍𝚎𝚛-𝚛𝚊𝚍𝚒𝚞𝚜:10𝚙𝚡">
+
+<𝚙>
+𝚂𝚒𝚕𝚊𝚔𝚊𝚗 𝚜𝚌𝚊𝚗 𝚀𝚁𝙸𝚂 𝚍𝚒 𝚊𝚝𝚊𝚜.
+</𝚙>
+
+<𝚋𝚞𝚝𝚝𝚘𝚗
+𝚘𝚗𝚌𝚕𝚒𝚌𝚔="𝚕𝚊𝚗𝚓𝚞𝚝𝚃𝚛𝚊𝚗𝚜𝚏𝚎𝚛()"
+𝚜𝚝𝚢𝚕𝚎="
+𝚋𝚊𝚌𝚔𝚐𝚛𝚘𝚞𝚗𝚍:#16𝚊34𝚊;
+𝚌𝚘𝚕𝚘𝚛:#𝚏𝚏𝚏;
+𝚙𝚊𝚍𝚍𝚒𝚗𝚐:10𝚙𝚡 20𝚙𝚡;
+𝚋𝚘𝚛𝚍𝚎𝚛:𝚗𝚘𝚗𝚎;
+𝚋𝚘𝚛𝚍𝚎𝚛-𝚛𝚊𝚍𝚒𝚞𝚜:8𝚙𝚡;
+">
+𝚂𝚊𝚢𝚊 𝚂𝚞𝚍𝚊𝚑 𝚂𝚌𝚊𝚗
+</𝚋𝚞𝚝𝚝𝚘𝚗>
+
+<𝚋𝚞𝚝𝚝𝚘𝚗
+𝚘𝚗𝚌𝚕𝚒𝚌𝚔="𝚍𝚘𝚌𝚞𝚖𝚎𝚗𝚝.𝚐𝚎𝚝𝙴𝚕𝚎𝚖𝚎𝚗𝚝𝙱𝚢𝙸𝚍('𝚙𝚘𝚙𝚞𝚙𝚃𝚛𝚊𝚗𝚜𝚏𝚎𝚛').𝚛𝚎𝚖𝚘𝚟𝚎()"
+𝚜𝚝𝚢𝚕𝚎="
+𝚋𝚊𝚌𝚔𝚐𝚛𝚘𝚞𝚗𝚍:#𝚎𝚏4444;
+𝚌𝚘𝚕𝚘𝚛:#𝚏𝚏𝚏;
+𝚙𝚊𝚍𝚍𝚒𝚗𝚐:10𝚙𝚡 20𝚙𝚡;
+𝚋𝚘𝚛𝚍𝚎𝚛:𝚗𝚘𝚗𝚎;
+𝚋𝚘𝚛𝚍𝚎𝚛-𝚛𝚊𝚍𝚒𝚞𝚜:8𝚙𝚡;
+𝚖𝚊𝚛𝚐𝚒𝚗-𝚕𝚎𝚏𝚝:10𝚙𝚡;
+">
+𝙱𝚊𝚝𝚊𝚕
+</𝚋𝚞𝚝𝚝𝚘𝚗>
+
+</𝚍𝚒𝚟>
+
+`;
+
+𝚍𝚘𝚌𝚞𝚖𝚎𝚗𝚝.𝚋𝚘𝚍𝚢.𝚊𝚙𝚙𝚎𝚗𝚍𝙲𝚑𝚒𝚕𝚍(𝚙𝚘𝚙𝚞𝚙);
+
+}
 /* UPDATE TRANSAKSI */
 
 db[noWa]++;
