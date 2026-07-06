@@ -208,7 +208,11 @@ Total <span id="jumlahItem"></span> Produk
 <span id="tTotal"></span>
 </div>
 
-<button class="btn" onclick="buatPesanan()">
+<button
+id="btnPesan"
+class="btn"
+style="display:none"
+onclick="buatPesanan()">
 Buat Pesanan
 </button>
 
@@ -342,61 +346,64 @@ el.classList.add("active");
 
 /* TRANSFER */
 
-function tampilTransfer(){
-
-document.getElementById("transferBox").style.display="block";
-document.getElementById("rekeningBox").style.display="block";
-
-}
-
-function pilihTransfer(b,n,a,el){
+function pilihTransfer(bank,norek,nama,el){
 
 metode="TRANSFER";
 
-bank=b;
-norek=n;
-an=a;
-
 document.querySelectorAll(".pay").forEach(x=>x.classList.remove("active"));
-
 el.classList.add("active");
 
-}
+let popup=document.createElement("div");
+popup.id="popupTransfer";
+popup.style.position="fixed";
+popup.style.inset="0";
+popup.style.background="rgba(0,0,0,.6)";
+popup.style.display="flex";
+popup.style.alignItems="center";
+popup.style.justifyContent="center";
+popup.style.zIndex="9999";
 
-/* POPUP */
+popup.innerHTML=`
+<div style="background:#fff;width:90%;max-width:360px;padding:20px;border-radius:15px;text-align:center">
 
-function popup(pesan){
+<h3>Transfer Pembayaran</h3>
 
-let box=document.createElement("div");
+<p>Silakan transfer ke rekening berikut</p>
 
-box.style.position="fixed";
-box.style.top="0";
-box.style.left="0";
-box.style.width="100%";
-box.style.height="100%";
-box.style.background="rgba(0,0,0,0.5)";
-box.style.display="flex";
-box.style.alignItems="center";
-box.style.justifyContent="center";
-box.style.zIndex="9999";
+<b>${bank}</b><br>
+<div id="noRek">${norek}</div>
+a.n ${nama}
 
-box.innerHTML=`
-<div style="background:white;padding:20px;border-radius:12px;width:80%;max-width:300px;text-align:center">
+<br><br>
 
-<h3 style="color:#15803d;margin-top:0">TOKO SIAP ANTAR</h3>
+<button onclick="copyRek()" style="background:#16a34a;color:white;padding:10px 20px;border:none;border-radius:8px">
+📋 Salin
+</button>
 
-<p>${pesan}</p>
+<hr>
 
-<button onclick="this.parentElement.parentElement.remove()"
-style="background:#15803d;color:white;border:none;padding:10px 20px;border-radius:6px">
+<button onclick="document.getElementById('popupTransfer').remove()"
+style="background:#ef4444;color:white;padding:10px 20px;border:none;border-radius:8px">
+Batal
+</button>
+
+<button onclick="lanjutTransfer()"
+style="background:#16a34a;color:white;padding:10px 20px;border:none;border-radius:8px">
 OK
 </button>
 
-</div>
-`;
+</div>`;
 
-document.body.appendChild(box);
+document.body.appendChild(popup);
+}
+𝚏𝚞𝚗𝚌𝚝𝚒𝚘𝚗 𝚌𝚘𝚙𝚢𝚁𝚎𝚔(){
+𝚗𝚊𝚟𝚒𝚐𝚊𝚝𝚘𝚛.𝚌𝚕𝚒𝚙𝚋𝚘𝚊𝚛𝚍.𝚠𝚛𝚒𝚝𝚎𝚃𝚎𝚡𝚝(𝚍𝚘𝚌𝚞𝚖𝚎𝚗𝚝.𝚐𝚎𝚝𝙴𝚕𝚎𝚖𝚎𝚗𝚝𝙱𝚢𝙸𝚍("𝚗𝚘𝚁𝚎𝚔").𝚒𝚗𝚗𝚎𝚛𝚃𝚎𝚡𝚝);
+𝚊𝚕𝚎𝚛𝚝("𝙽𝚘𝚖𝚘𝚛 𝚛𝚎𝚔𝚎𝚗𝚒𝚗𝚐 𝚋𝚎𝚛𝚑𝚊𝚜𝚒𝚕 𝚍𝚒𝚜𝚊𝚕𝚒𝚗");
+}
 
+𝚏𝚞𝚗𝚌𝚝𝚒𝚘𝚗 𝚕𝚊𝚗𝚓𝚞𝚝𝚃𝚛𝚊𝚗𝚜𝚏𝚎𝚛(){
+𝚍𝚘𝚌𝚞𝚖𝚎𝚗𝚝.𝚐𝚎𝚝𝙴𝚕𝚎𝚖𝚎𝚗𝚝𝙱𝚢𝙸𝚍("𝚙𝚘𝚙𝚞𝚙𝚃𝚛𝚊𝚗𝚜𝚏𝚎𝚛").𝚛𝚎𝚖𝚘𝚟𝚎();
+𝚍𝚘𝚌𝚞𝚖𝚎𝚗𝚝.𝚐𝚎𝚝𝙴𝚕𝚎𝚖𝚎𝚗𝚝𝙱𝚢𝙸𝚍("𝚋𝚝𝚗𝙿𝚎𝚜𝚊𝚗").𝚜𝚝𝚢𝚕𝚎.𝚍𝚒𝚜𝚙𝚕𝚊𝚢="𝚋𝚕𝚘𝚌𝚔";
 }
 /* BUAT PESANAN */
 
