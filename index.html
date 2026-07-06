@@ -1144,7 +1144,46 @@ padding:14px;
 font-size:16px;
 padding:14px 20px;
 }
+.popup-bottom{
+display:flex;
+align-items:center;
+gap:10px;
+margin-top:20px;
+width:100%;
+}
 
+.popup-icon{
+width:75px;
+height:70px;
+border:1px solid #ddd;
+background:#fff;
+border-radius:12px;
+cursor:pointer;
+font-size:26px;
+font-weight:bold;
+color:#ff6600;
+}
+
+.popup-icon span{
+font-size:12px;
+color:#555;
+}
+
+.popup-checkout{
+flex:1;
+height:70px;
+border:none;
+border-radius:12px;
+background:#ff5a00;
+color:#fff;
+font-size:20px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.popup-checkout:hover{
+background:#e65100;
+}
 }
 </style>
 
@@ -1179,11 +1218,22 @@ lagu.play();
 <div id="zoomDeskripsi" style="font-size:28px;color:#555;margin:12px 0;max-height:220px;overflow:auto"></div>
 <div id="zoomHarga" style="color:#ff6a00;font-weight:bold;margin:6px 0"></div>
 
-<button id="zoomCart" class="btn-cart">
-+ Keranjang
-</button>
+<div class="popup-bottom">
+
+    <button id="btnChat" class="popup-icon">
+        💬<br><span>Chat</span>
+    </button>
+
+    <button id="btnKeranjang" class="popup-icon">
+        🛒<br><span>Keranjang</span>
+    </button>
+
+    <button id="btnCheckout" class="popup-checkout">
+        Beli Sekarang
+    </button>
 
 </div>
+
 
 </div>
 
@@ -1203,8 +1253,33 @@ document.getElementById("zoomHarga").innerText=
 
 document.getElementById("zoomDeskripsi").innerHTML =
 deskripsi.replace(/\n/g,"<br>");
-document.getElementById("zoomCart").onclick=function(){
-tambahKeranjang(nama,harga,src);
+document.getElementById("btnKeranjang").onclick=function(){
+    tambahKeranjang(nama,harga,src);
+};
+
+document.getElementById("btnChat").onclick=function(){
+
+    let pesan =
+`Halo Admin A YUDI THEA
+
+Saya ingin bertanya mengenai:
+
+${nama}
+
+Harga : Rp ${Number(harga).toLocaleString()}`;
+
+    window.open(
+        "https://wa.me/6282319264646?text="+encodeURIComponent(pesan),
+        "_blank"
+    );
+};
+
+document.getElementById("btnCheckout").onclick=function(){
+
+    tambahKeranjang(nama,harga,src);
+
+    window.location.href="cart.html";
+
 };
 
 popup.style.display="flex";
