@@ -1506,10 +1506,12 @@ if(!foto) return;
 
 html+=`
 <div class="slide-manual">
-<img src="${foto}"
-onclick="besarSlider('${foto}')">
+<img src="${foto}" onclick="besarSlider('${foto}')">
 </div>
 `;
+
+});
+
 /* DUPLIKASI supaya loop halus */
 
 document.getElementById("slides").innerHTML=html+html;
