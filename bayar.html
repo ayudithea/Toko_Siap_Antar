@@ -178,23 +178,6 @@ Checkout
 💳 DANA / GoPay
 </div>
 <!-- === TAMBAH REKENING BARU - SELESAI === -->>
-</div>
-
-<div id="rekeningBox">
-
-<b>Transfer ke:</b><br><br>
-
-Bank BRI<br>
-0046 0105 1342 504<br>
-a.n INA KHOZINATUL ASROR<br><br>
-
-DANA<br>
-082319264646<br>
-a.n YUDI ALIYUDIN
-
-</div>
-
-</div>
 
 <!-- RINGKASAN -->
 
@@ -428,10 +411,23 @@ const rekeningData={
 "SeaBank":{no:"901341445605",an:"YUDI ALIYUDIN"}
 };
 
-function salinRekening(n){
-navigator.clipboard.writeText(n);
-alert("Nomor rekening berhasil disalin");
-}
+</div>
+
+<div id="rekeningBox">
+
+<b>Transfer ke:</b><br><br>
+
+Bank BRI<br>
+0046 0105 1342 504<br>
+a.n INA KHOZINATUL ASROR<br><br>
+
+DANA<br>
+082319264646<br>
+a.n YUDI ALIYUDIN
+
+</div>
+
+</div>
 
 function popupTransfer(bank,no,an,okFn,batalFn){
 let bg=document.createElement("div");
