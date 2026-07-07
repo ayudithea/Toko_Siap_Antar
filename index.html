@@ -1528,33 +1528,24 @@ function getViewCount(nama){
 <script>
 const slider = document.querySelector(".slider-sheet");
 
-let isDown = false;
-let startX;
-let scrollLeft;
+let startX = 0;
+let isDragging = false;
 
-slider.addEventListener("touchstart", function(e){
-    isDown = true;
+slider.addEventListener("touchstart", e => {
     startX = e.touches[0].pageX;
-    scrollLeft = slider.scrollLeft;
-
-    document.querySelector(".slides").style.animationPlayState = "paused";
+    isDragging = false;
 });
 
-slider.addEventListener("touchmove", function(e){
-    if(!isDown) return;
-
-    const x = e.touches[0].pageX;
-    const walk = (x - startX) * 1.5;
-
-    slider.scrollLeft = scrollLeft - walk;
+slider.addEventListener("touchmove", e => {
+    if (Math.abs(e.touches[0].pageX - startX) > 10) {
+        isDragging = true;
+    }
 });
 
-slider.addEventListener("touchend", function(){
-    isDown = false;
-
-    setTimeout(()=>{
-        document.querySelector(".slides").style.animationPlayState = "running";
-    },2000);
+slider.addEventListener("touchend", e => {
+    if (isDragging) {
+        e.preventDefault();
+    }
 });
     </script>
 
