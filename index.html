@@ -1506,12 +1506,10 @@ if(!foto) return;
 
 html+=`
 <div class="slide-manual">
-<img src="${foto}">
+<img src="${foto}"
+onclick="besarSlider('${foto}')">
 </div>
 `;
-
-});
-
 /* DUPLIKASI supaya loop halus */
 
 document.getElementById("slides").innerHTML=html+html;
@@ -1566,6 +1564,10 @@ slider.addEventListener("touchend", function(){
         document.querySelector(".slides").style.animationPlayState = "running";
     },2000);
 });
+    function besarSlider(src){
+    document.getElementById("sliderPopupImg").src = src;
+    document.getElementById("sliderPopup").style.display = "flex";
+    }
 </script>
     <div id="sliderPopup"
 onclick="this.style.display='none'"
