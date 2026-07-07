@@ -1554,7 +1554,6 @@ slider.addEventListener("touchend", function(){
 });
     </script>
 
-    <
     <div id="popupSlider"
 onclick="this.style.display='none'"
 style="
@@ -1577,7 +1576,12 @@ object-fit:contain;
 </div>
 
 <script>
-function popupSlider(src){
+function popupSlider(src, e){
+    if(e){
+        e.preventDefault();
+        e.stopPropagation();
+    }
+
     document.getElementById("popupSliderImg").src = src;
     document.getElementById("popupSlider").style.display = "flex";
 }
