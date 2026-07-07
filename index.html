@@ -492,27 +492,33 @@ position:absolute;
 top:35px;
 left:0;
 width:100%;
-overflow:hidden;
+overflow-x:auto;
+overflow-y:hidden;
+-webkit-overflow-scrolling:touch;
+scroll-snap-type:x mandatory;
 z-index:1;
+}
+
+.slider-sheet::-webkit-scrollbar{
+display:none;
 }
 
 .slides{
 display:flex;
 gap:20px;
+width:max-content;
 animation:slidejalan 40s linear infinite;
+}
+
+.slider-sheet:hover .slides,
+.slider-sheet:active .slides{
+animation-play-state:paused;
 }
 
 .slide-manual{
 flex-shrink:0;
+scroll-snap-align:center;
 }
-
-.slide-manual img{
-width:220px;
-height:380px;
-object-fit:cover;
-border-radius:10px;
-}
-
 @keyframes slidejalan{
 0%{
 transform:translateX(0);
@@ -1535,6 +1541,19 @@ function getViewCount(nama){
  return n.toLocaleString('id-ID');
 }
 </script>
+<script>
+const slider = document.querySelector(".slider-sheet");
+const slides = document.querySelector(".slides");
 
+slider.addEventListener("touchstart", () => {
+    slides.style.animationPlayState = "paused";
+});
+
+slider.addEventListener("touchend", () => {
+    setTimeout(() => {
+        slides.style.animationPlayState = "running";
+    }, 3000);
+});
+</script>
 </body>
 </html>
