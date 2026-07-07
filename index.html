@@ -1567,5 +1567,28 @@ slider.addEventListener("touchend", function(){
     },2000);
 });
 </script>
+    <div id="sliderPopup"
+onclick="this.style.display='none'"
+style="
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.85);
+justify-content:center;
+align-items:center;
+z-index:999999;
+">
+
+<img id="sliderPopupImg"
+style="
+max-width:95%;
+max-height:95%;
+border-radius:12px;
+">
+
+    </div>
 </body>
 </html>
