@@ -486,38 +486,23 @@ z-index:9999;
 animation:keranjangBlink 0.5s ease 3;
 }
 /* SLIDER GOOGLE SHEET */
-
 .slider-sheet{
 position:absolute;
 top:35px;
 left:0;
 width:100%;
-overflow-x:auto;
-overflow-y:hidden;
--webkit-overflow-scrolling:touch;
-scroll-snap-type:x mandatory;
+overflow:hidden;
 z-index:1;
-}
-
-.slider-sheet::-webkit-scrollbar{
-display:none;
 }
 
 .slides{
 display:flex;
 gap:20px;
-width:max-content;
 animation:slidejalan 40s linear infinite;
-}
-
-.slider-sheet:hover .slides,
-.slider-sheet:active .slides{
-animation-play-state:paused;
 }
 
 .slide-manual{
 flex-shrink:0;
-scroll-snap-align:center;
 }
 @keyframes slidejalan{
 0%{
@@ -1545,14 +1530,27 @@ function getViewCount(nama){
 const slider = document.querySelector(".slider-sheet");
 const slides = document.querySelector(".slides");
 
-slider.addEventListener("touchstart", () => {
+let startX = 0;
+let current = 0;
+
+slider.addEventListener("touchstart", function(e){
     slides.style.animationPlayState = "paused";
+    startX = e.touches[0].clientX;
 });
 
-slider.addEventListener("touchend", () => {
-    setTimeout(() => {
+slider.addEventListener("touchmove", function(e){
+    let x = e.touches[0].clientX;
+    let diff = x - startX;
+    slides.style.transform = `translateX(${current + diff}px)`;
+});
+
+slider.addEventListener("touchend", function(e){
+    let x = e.changedTouches[0].clientX;
+    current += (x - startX);
+
+    setTimeout(()=>{
         slides.style.animationPlayState = "running";
-    }, 3000);
+    },3000);
 });
 </script>
 </body>
