@@ -1504,12 +1504,11 @@ let foto=convertDrive(r.c[1]?.v);
 
 if(!foto) return;
 
-html+=`
+html += `
 <div class="slide-manual">
-<img src="${foto}" onclick="besarSlider('${foto}')">
+    <img src="${foto}" onclick="popupSlider('${foto}')">
 </div>
 `;
-
 });
 
 /* DUPLIKASI supaya loop halus */
@@ -1596,5 +1595,32 @@ border-radius:12px;
 ">
 
     </div>
+    <div id="popupSlider"
+onclick="this.style.display='none'"
+style="
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.9);
+justify-content:center;
+align-items:center;
+z-index:999999;
+">
+
+<img id="popupSliderImg"
+style="
+max-width:95%;
+max-height:95%;
+object-fit:contain;
+">
+
+</div>
+
+<script>
+function popupSlider(src){
+    document.getElementById("popupSliderImg").src = src;
+    document.getElementById("popupSlider").style.display = "flex";
+}
+</script>
 </body>
 </html>
