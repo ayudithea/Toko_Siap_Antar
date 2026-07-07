@@ -1537,29 +1537,34 @@ function getViewCount(nama){
 </script>
 <script>
 const slider = document.querySelector(".slider-sheet");
-const slides = document.querySelector(".slides");
 
-let startX = 0;
-let current = 0;
+let isDown = false;
+let startX;
+let scrollLeft;
 
 slider.addEventListener("touchstart", function(e){
-    slides.style.animationPlayState = "paused";
-    startX = e.touches[0].clientX;
+    isDown = true;
+    startX = e.touches[0].pageX;
+    scrollLeft = slider.scrollLeft;
+
+    document.querySelector(".slides").style.animationPlayState = "paused";
 });
 
 slider.addEventListener("touchmove", function(e){
-    let x = e.touches[0].clientX;
-    let diff = x - startX;
-    slides.style.transform = `translateX(${current + diff}px)`;
+    if(!isDown) return;
+
+    const x = e.touches[0].pageX;
+    const walk = (x - startX) * 1.5;
+
+    slider.scrollLeft = scrollLeft - walk;
 });
 
-slider.addEventListener("touchend", function(e){
-    let x = e.changedTouches[0].clientX;
-    current += (x - startX);
+slider.addEventListener("touchend", function(){
+    isDown = false;
 
     setTimeout(()=>{
-        slides.style.animationPlayState = "running";
-    },3000);
+        document.querySelector(".slides").style.animationPlayState = "running";
+    },2000);
 });
 </script>
 </body>
