@@ -734,10 +734,14 @@ Estimasi 1 Jam Pesanan Sampai Ke lokasi
 </div>
 <!-- MENU -->
 <div class="menu-pro">
-<a href="lcdhp.html?kategori=LCD HP">📱LCD HP</a>
-<a href="battery.html?kategori=BATTERY HP">🔋 BATTERY HP</a>
-<a href="sparepart.html?kategori=SPAREPART">🧩 TOOLS & SPAREPART</a>
-<a href="flexi.html?kategori=FLEXI">🚧 FLEXIBLE</a>
+<a href="#" onclick="filterLCD()">📱 LCD HP</a>
+
+<a href="#" onclick="belumTersedia()">🔋 BATTERY HP</a>
+
+<a href="#" onclick="belumTersedia()">🧩 TOOLS & SPAREPART</a>
+
+<a href="#" onclick="belumTersedia()">🚧 FLEXIBLE</a>
+
 <a href="riwayat.html">Riwayat Pesanan</a>
 </div>
 
@@ -940,7 +944,18 @@ function popup(pesan){
  </div>`;
  document.body.appendChild(box);
 }
+function belumTersedia(){
 
+popup(
+`🚧 Kategori ini masih dalam proses persiapan.
+
+Silakan kembali lagi dalam waktu dekat.
+
+Terima kasih telah menggunakan
+TOKO SIAP ANTAR 😊`
+);
+
+}
 
 function beliSekarang(nama,harga,foto){
 let cart=JSON.parse(localStorage.getItem("cart"))||[];
