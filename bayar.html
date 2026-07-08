@@ -431,7 +431,7 @@ box.style.background="rgba(0,0,0,0.5)";
 box.style.display="flex";
 box.style.alignItems="center";
 box.style.justifyContent="center";
-box.style.zIndex="9999";
+box.style.zIndex="9999999";
 
 box.innerHTML=`
 <div style="background:white;padding:20px;border-radius:12px;width:80%;max-width:300px;text-align:center">
@@ -484,26 +484,22 @@ function salinRekening(n){
 
 navigator.clipboard.writeText(n).then(()=>{
 
+// Tutup popup transfer
+document.querySelectorAll("div").forEach(el=>{
+    if(el.style.zIndex=="99999"){
+        el.remove();
+    }
+});
+
+// Tampilkan popup sukses
 popup(`
 <div style="font-size:48px;">✅</div>
 
-<h3 style="margin:10px 0;color:#16a34a;">
-TOKO SIAP ANTAR
-</h3>
+<p>Nomor rekening berhasil disalin.</p>
 
-<p style="font-size:15px;">
-Nomor rekening berhasil disalin.
-</p>
-
-<div style="
-font-size:20px;
-font-weight:bold;
-color:#15803d;
-margin-top:10px;
-">
+<div style="font-size:20px;font-weight:bold;color:#15803d">
 ${n}
 </div>
-
 `);
 
 });
