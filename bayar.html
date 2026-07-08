@@ -481,8 +481,33 @@ an:"YUDI ALIYUDIN"
 
 };
 function salinRekening(n){
-navigator.clipboard.writeText(n);
-alert("Nomor rekening berhasil disalin");
+
+navigator.clipboard.writeText(n).then(()=>{
+
+popup(`
+<div style="font-size:48px;">✅</div>
+
+<h3 style="margin:10px 0;color:#16a34a;">
+TOKO SIAP ANTAR
+</h3>
+
+<p style="font-size:15px;">
+Nomor rekening berhasil disalin.
+</p>
+
+<div style="
+font-size:20px;
+font-weight:bold;
+color:#15803d;
+margin-top:10px;
+">
+${n}
+</div>
+
+`);
+
+});
+
 }
 
 function popupTransfer(bank,no,an,okFn,batalFn){
