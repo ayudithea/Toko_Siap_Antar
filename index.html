@@ -840,6 +840,18 @@ max-height:95vh!important;
         padding:8px;
         line-height:1.4;
     }
+    /* HEADER STICKY */
+.sticky-header{
+    position:sticky;
+    top:0;
+    z-index:9999;
+    background:#fff;
+}
+
+/* Supaya produk tidak tertutup */
+.hero{
+    margin-top:10px;
+}
 
 }
 
@@ -852,36 +864,35 @@ max-height:95vh!important;
 <div id="cartFloat" onclick="window.location.href='cart.html'">
 🛒Keranjang <span id="cartCount">0</span>
 </div>
+    
+<div class="sticky-header">
 
 <div class="header">
-<div class="slider-sheet">
-<div class="slides" id="slides"></div>
-</div>
+    <div class="slider-sheet">
+        <div class="slides" id="slides"></div>
+    </div>
 
-<div class="logo-tengah">
-<img src="logo2.png">
+    <div class="logo-tengah">
+        <img src="logo2.png">
+    </div>
 </div>
-</div>
-<!-- TUTUP HEADER -->
 
 <div class="motor-jalan">
-  <div class="motor-kirim">
-    <img src="motor.png">
-    <div class="teks-kirim">📦 Pesanan OTW</div>
-    <div class="asap">💨</div>
-  </div>
+    <div class="motor-kirim">
+        <img src="motor.png">
+        <div class="teks-kirim">📦 Pesanan OTW</div>
+        <div class="asap">💨</div>
+    </div>
 </div>
-<!-- RUNNING TEXT -->
+
 <div class="running-text">
-<marquee scrollamount="7">
+    <marquee scrollamount="7">
+        🏍 Jangan Khawatir Ongkir Mahal • Ongkir Mulai Rp5.000 • Belanja Sparepart HP Lebih Mudah
+    </marquee>
+</div>
 
-<img src="motor-icon.png" style="height:22px;vertical-align:middle">
+<div class="garis"></div>
 
-🏍 Jangan Khawatir Ongkir Mahal • Ongkir Mulai Rp5.000 Area Dekat • Maksimal Hanya Rp20.000 Untuk Area Terjauh di Kabupaten Majalengka • Belanja Sparepart HP Lebih Mudah • Pesanan Siap Antar ke Lokasi Anda
-
-<img src="motor-icon.png" style="height:22px;vertical-align:middle">
-
-</marquee>
 </div>
 
 <!-- GARIS -->
