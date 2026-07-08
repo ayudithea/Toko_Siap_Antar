@@ -457,74 +457,71 @@ hitungOngkir();
 
 function hitungOngkir(){
 
-jarakFix = map.distance([tokoLat,tokoLng],[tujuanLat,tujuanLng]) / 1000;
+    jarakFix = map.distance([tokoLat,tokoLng],[tujuanLat,tujuanLng]) / 1000;
 
-/* ONGKIR MAX 20RB */
+    /* ONGKIR + MINIMAL BELANJA */
 
-if(jarakFix <= 10){
+    if(jarakFix <= 3){
 
-ongkir = 5000;
-minimalBelanja = 150000;
+        ongkir = 5000;
+        minimalBelanja = 30000;
 
-}
+    }else if(jarakFix <= 7){
 
-else if(jarakFix <= 20){
+        ongkir = 10000;
+        minimalBelanja = 50000;
 
-ongkir = 10000;
-minimalBelanja = 200000;
+    }else if(jarakFix <= 15){
 
-}
+        ongkir = 15000;
+        minimalBelanja = 100000;
 
-else if(jarakFix <= 30){
+    }else{
 
-ongkir = 15000;
-minimalBelanja = 300000;
+        ongkir = 20000;
+        minimalBelanja = 150000;
 
-}
+    }
 
-else{
+    let totalBarang = 0;
 
-ongkir = 20000;
-minimalBelanja = 400000;
+    cart.forEach(p=>{
+        totalBarang += p.harga * p.qty;
+    });
 
-}
+    let kurang = minimalBelanja - totalBarang;
 
-let totalBarang=0;
+    let infoTambah = "";
 
-cart.forEach(p=>{
+    if(totalBarang < minimalBelanja){
 
-totalBarang += p.harga * p.qty;
+        infoTambah =
+        "<br><b style='color:red'>Kurang belanja Rp " +
+        rupiah(kurang) +
+        " lagi</b>";
 
-});
+    }else{
 
-let kurang = minimalBelanja - totalBarang;
+        infoTambah =
+        "<br><b style='color:#16a34a'>✅ Minimal belanja terpenuhi</b>";
 
-let infoTambah="";
+    }
 
-if(minimalBelanja>0 && totalBarang<minimalBelanja){
+    let estimasi = Math.ceil(jarakFix * 3);
 
-infoTambah =
-"<br><b style='color:red'>Tambah belanja Rp "+
-rupiah(kurang)+" lagi</b>";
+    document.getElementById("infoZona").innerHTML =
 
-}
+    "📍 Jarak : <b>" + jarakFix.toFixed(1) + " km</b><br>" +
+    "🚚 Ongkir : <b>Rp " + rupiah(ongkir) + "</b><br>" +
+    "🛒 Minimal Belanja : <b>Rp " + rupiah(minimalBelanja) + "</b>" +
+    infoTambah +
+    "<br>⏱ Estimasi Antar : ±" + estimasi + " menit" +
+    "<br>🏠 Desa : " + namaDesa +
+    "<br>🏘 Kecamatan : " + namaKecamatan;
 
-let estimasi=Math.ceil(jarakFix*3);
-
-document.getElementById("infoZona").innerHTML=
-
-"Jarak : "+jarakFix.toFixed(1)+" km<br>"+
-"Ongkir : Rp "+rupiah(ongkir)+"<br>"+
-"Minimal Belanja : Rp "+rupiah(minimalBelanja)+
-infoTambah+
-"<br>Estimasi Antar : ±"+estimasi+" menit<br>"+
-"Desa : "+namaDesa+"<br>"+
-"Kecamatan : "+namaKecamatan;
-
-renderCart();
+    renderCart();
 
 }
-
 /* ================= POPUP ================= */
 
 function popup(pesan){
