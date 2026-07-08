@@ -629,18 +629,27 @@ background:#ff4500;
 .btn-modern,.btn-member{display:block!important;width:80%!important;font-size:9px!important;padding:9px!important;margin:6px auto!important;}
 .search-box input{width:80%!important;font-size:10px!important;padding:9px!important;}
 .menu-pro{
+    display:flex!important;
     flex-wrap:nowrap!important;
     overflow-x:auto!important;
-    justify-content:center!important; /* atau flex-start */
-    gap:6px!important;
-    padding:0 6px!important;
+    justify-content:flex-start!important;
+    gap:4px!important;
+    padding:0 4px!important;
+    scrollbar-width:none;
+}
+
+.menu-pro::-webkit-scrollbar{
+    display:none;
 }
 
 .menu-pro a{
     flex:0 0 auto!important;
-    padding:6px 10px!important;
+    min-width:90px!important;
+    padding:6px 8px!important;
     font-size:8px!important;
     border-radius:20px!important;
+    text-align:center!important;
+    white-space:nowrap!important;
 }
     .btn-cart,
 .produk-card button{
