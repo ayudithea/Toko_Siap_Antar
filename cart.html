@@ -458,7 +458,24 @@ hitungOngkir();
 function hitungOngkir(){
 
     jarakFix = map.distance([tokoLat,tokoLng],[tujuanLat,tujuanLng]) / 1000;
+// BATAS MAKSIMAL RADIUS PENGIRIMAN
+if(jarakFix > 40){
 
+    ongkir = 0;
+    minimalBelanja = 0;
+
+    document.getElementById("infoZona").innerHTML = `
+    <span style="color:red;font-weight:bold;">
+    ❌ Maaf, layanan Siap Antar hanya melayani
+    maksimal radius 40 KM dari toko.
+    </span>`;
+
+    popup("🚫 Maaf, lokasi Anda berada di luar jangkauan pengiriman.<br><br>Maksimal radius layanan adalah <b>40 KM</b>.");
+
+    renderCart();
+
+    return;
+}
     /* ONGKIR + MINIMAL BELANJA */
 
     if(jarakFix <= 3){
