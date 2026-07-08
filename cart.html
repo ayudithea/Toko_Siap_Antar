@@ -463,26 +463,40 @@ function hitungOngkir(){
 
     if(jarakFix <= 3){
 
-        ongkir = 5000;
-        minimalBelanja = 30000;
+    ongkir = 5000;
+    minimalBelanja = 30000;
 
-    }else if(jarakFix <= 7){
+}else if(jarakFix <= 7){
 
-        ongkir = 10000;
-        minimalBelanja = 50000;
+    ongkir = 10000;
+    minimalBelanja = 50000;
 
-    }else if(jarakFix <= 15){
+}else if(jarakFix <= 15){
 
-        ongkir = 15000;
-        minimalBelanja = 100000;
+    ongkir = 15000;
+    minimalBelanja = 100000;
 
-    }else{
+}else if(jarakFix <= 20){
 
-        ongkir = 20000;
-        minimalBelanja = 150000;
+    ongkir = 20000;
+    minimalBelanja = 150000;
 
-    }
+}else if(jarakFix <= 30){
 
+    ongkir = 20000;
+    minimalBelanja = 250000;
+
+}else if(jarakFix <= 40){
+
+    ongkir = 20000;
+    minimalBelanja = 350000;
+
+}else{
+
+    ongkir = 20000;
+    minimalBelanja = 500000;
+
+}
     let totalBarang = 0;
 
     cart.forEach(p=>{
