@@ -149,7 +149,6 @@ Checkout
 </div>
 
 <div id="transferBox" style="display:none">
-<div id="transferBox" style="display:none">
 
 <div class="pay"
 onclick="pilihTransfer('MANDIRI','1340033268904','YUDI ALIYUDIN',this)">
@@ -208,18 +207,27 @@ function copyRek(id, btn){
 
 <b>Transfer ke:</b><br><br>
 
-Bank BRI<br>
+🏦 Bank Mandiri<br>
+1340033268904<br>
+a.n YUDI ALIYUDIN<br><br>
+
+🏦 Bank BCA<br>
+4180734771<br>
+a.n YUDI ALIYUDIN<br><br>
+
+🏦 Bank BRI<br>
 004601060489505<br>
 a.n YUDI ALIYUDIN<br><br>
 
-DANA<br>
+💳 DANA / GoPay<br>
 082319264646<br>
+a.n YUDI ALIYUDIN<br><br>
+
+🏦 SeaBank<br>
+901341445605<br>
 a.n YUDI ALIYUDIN
 
 </div>
-
-</div>
-
 <!-- RINGKASAN -->
 
 <div class="card">
@@ -444,14 +452,34 @@ document.body.appendChild(box);
 
 }
 
-const rekeningData={
-"Mandiri":{no:"1340033268904",an:"YUDI ALIYUDIN"},
-"BCA":{no:"4180734771",an:"YUDI ALIYUDIN"},
-"BRI":{no:"004601060489505",an:"YUDI ALIYUDIN"},
-"DANA / GoPay":{no:"082319264646",an:"YUDI ALIYUDIN"},
-"SeaBank":{no:"901341445605",an:"YUDI ALIYUDIN"}
-};
+const rekeningData = {
 
+"MANDIRI":{
+no:"1340033268904",
+an:"YUDI ALIYUDIN"
+},
+
+"BCA":{
+no:"4180734771",
+an:"YUDI ALIYUDIN"
+},
+
+"BRI":{
+no:"004601060489505",
+an:"YUDI ALIYUDIN"
+},
+
+"DANA / GOPAY":{
+no:"082319264646",
+an:"YUDI ALIYUDIN"
+},
+
+"SEABANK":{
+no:"901341445605",
+an:"YUDI ALIYUDIN"
+}
+
+};
 function salinRekening(n){
 navigator.clipboard.writeText(n);
 alert("Nomor rekening berhasil disalin");
