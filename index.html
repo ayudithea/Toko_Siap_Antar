@@ -685,79 +685,231 @@ background:#ff4500;
 
 /* HERO */
 .hero{
-    padding:12px 8px !important;
-}
-
-.hero h2{
-    font-size:18px !important;
-    line-height:1.3;
-}
-
-.hero p{
-    font-size:12px !important;
-}
-
-/* BUTTON */
-.btn-modern,
-.btn-member{
-    display:block !important;
-    width:90% !important;
-    margin:5px auto !important;
-    padding:7px !important;
-    font-size:10px !important;
-}
-
-/* SEARCH */
-.search-box input{
-    width:80% !important;
-}
-/* V13 APK CARD */
-.apk-card{display:flex;align-items:center;gap:24px;background:#fff;border-radius:18px;padding:20px;max-width:900px;margin:20px auto;box-shadow:0 6px 18px rgba(0,0,0,.12)}
-.apk-card img{width:180px;height:180px;border-radius:18px}
-.apk-install{display:inline-block;background:#16a34a;color:#fff;text-decoration:none;padding:14px 26px;border-radius:30px;font-weight:bold;margin-top:10px}
-@media(max-width:768px){.apk-card{display:block;text-align:center}.apk-card img{width:140px;height:140px;margin:0 auto 15px;display:block}.apk-title{font-size:24px}.apk-desc{font-size:15px}.apk-install{display:block;width:100%}}
-
-}
-/* ===== POPUP PROMO MODE HP ===== */
+/* ==== V7 MOBILE ==== */
 @media (max-width:768px){
 
-#promoPopup{
-    padding:4px !important;
+.header{height:230px!important;}
+.logo-tengah{width:180px!important;height:180px!important;bottom:-50px!important;border-width:8px!important;}
+.logo-tengah img{width:70%!important;margin-top:-40px!important;}
+.slide-manual img{width:150px!important;height:220px!important;}
+.running-text{font-size:12px!important;padding:4px!important;}
+.hero{padding:20px 12px!important;}
+.hero h2{font-size:20px!important;line-height:1.3;}
+.hero p{font-size:13px!important;}
+
+.btn-modern,.btn-member{
+display:block!important;
+width:100%;
+margin:8px 0!important;
 }
 
-.promo-box{
+.menu-pro{
+display:flex!important;
+flex-wrap:nowrap!important;
+overflow-x:auto!important;
+justify-content:flex-start!important;
+padding:0 8px 8px;
+}
+
+.menu-pro a{
+flex:0 0 auto!important;
+}
+
+.search-box input{
+width:100%!important;
+}
+
+.produk-scroll{
+height:auto!important;
+padding-bottom:120px!important;
+}
+
+/* ===== PRODUK 3 KOLOM ===== */
+
+.produk-container{
+grid-template-columns:repeat(3,1fr)!important;
+gap:6px!important;
+padding:6px!important;
+}
+
+.produk-card{
+border-radius:10px!important;
+}
+
+.produk-img-box{
+height:100px!important;
+}
+
+.produk-info{
+padding:5px!important;
+}
+
+.produk-nama{
+font-size:10px!important;
+line-height:1.2!important;
+}
+
+.produk-deskripsi{
+font-size:8px!important;
+line-height:1.2!important;
+margin:2px 0!important;
+}
+
+.produk-harga{
+font-size:11px!important;
+margin:3px 0!important;
+}
+
+.produk-info button{
+padding:5px!important;
+font-size:10px!important;
+border-radius:6px!important;
+margin-top:3px!important;
+}
+
+#cartFloat{
+bottom:70px!important;
+right:10px!important;
+transform:scale(.85)!important;
+}
+
+.popup-bottom{
+flex-direction:column!important;
+}
+
+.popup-icon,
+.popup-checkout{
+width:100%!important;
+height:50px!important;
+}
+
+.zoomBox{
+width:96%!important;
+max-width:96%!important;
+max-height:95vh!important;
+}
+
+}
+
+/* .search-box input{
+    width:80% !important;
+}
+
+/* ===== APK CARD ===== */
+
+.apk-card{
+    display:flex;
+    align-items:center;
+    gap:20px;
     background:#fff;
-    width:80%;
-    max-width:300px;
-    max-height:70vh;
-    overflow-y:auto;
-    padding:10px;
-    border-radius:10px;
+    border-radius:18px;
+    padding:20px;
+    max-width:900px;
+    margin:20px auto;
+    box-shadow:0 6px 18px rgba(0,0,0,.12);
 }
 
-.logo{
-    width:100px;
+.apk-card img{
+    width:180px;
+    height:180px;
+    border-radius:18px;
+    object-fit:cover;
 }
 
-.promo-box h2{
-    font-size:10px;
-    margin:6px 0;
+.apk-install{
+    display:inline-block;
+    background:#16a34a;
+    color:#fff;
+    text-decoration:none;
+    padding:14px 26px;
+    border-radius:30px;
+    font-weight:bold;
+    margin-top:10px;
 }
 
-.promo-text{
-    font-size:8px;
-    line-height:1;
+/* ===== APK CARD MODE HP ===== */
+
+@media (max-width:768px){
+
+    .apk-card{
+        display:block;
+        text-align:center;
+        padding:15px;
+        margin:15px 10px;
+    }
+
+    .apk-card img{
+        width:120px;
+        height:120px;
+        margin:0 auto 12px;
+        display:block;
+    }
+
+    .apk-title{
+        font-size:18px;
+    }
+
+    .apk-desc{
+        font-size:13px;
+        line-height:1.4;
+    }
+
+    .apk-install{
+        display:block;
+        width:100%;
+        padding:12px;
+        font-size:15px;
+    }
+
 }
 
-.btn-belanja{
-    padding:5px;
-    font-size:8px;
-}
+/* ===== POPUP PROMO MODE HP ===== */
 
-.promo-highlight{
-    font-size:8px;
-    padding:5px;
-}
+@media (max-width:768px){
+
+    #promoPopup{
+        padding:6px !important;
+    }
+
+    .promo-box{
+        background:#fff;
+        width:88%;
+        max-width:320px;
+        max-height:75vh;
+        overflow-y:auto;
+        padding:12px;
+        border-radius:12px;
+    }
+
+    .logo{
+        width:120px;
+        margin:auto;
+        display:block;
+    }
+
+    .promo-box h2{
+        font-size:16px;
+        margin:8px 0;
+    }
+
+    .promo-text{
+        font-size:12px;
+        line-height:1.5;
+        text-align:left;
+    }
+
+    .btn-belanja{
+        width:100%;
+        padding:10px;
+        font-size:14px;
+        border-radius:25px;
+    }
+
+    .promo-highlight{
+        font-size:13px;
+        padding:8px;
+        line-height:1.4;
+    }
 
 }
 
