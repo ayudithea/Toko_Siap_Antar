@@ -719,38 +719,96 @@ max-height:95vh!important;
     width:80% !important;
 }
 
-/* ===== APK CARD ===== */
+/* ===== APK CARD V2 ===== */
 
 .apk-card{
-    display:flex;
-    align-items:center;
-    gap:20px;
-    background:#fff;
-    border-radius:18px;
-    padding:20px;
-    max-width:900px;
-    margin:20px auto;
-    box-shadow:0 6px 18px rgba(0,0,0,.12);
+display:flex;
+align-items:center;
+gap:20px;
+background:#fff;
+max-width:900px;
+margin:30px auto;
+padding:25px;
+border-radius:20px;
+box-shadow:0 8px 25px rgba(0,0,0,.12);
 }
 
 .apk-card img{
-    width:180px;
-    height:180px;
-    border-radius:18px;
-    object-fit:cover;
+width:120px;
+height:120px;
+border-radius:25px;
+object-fit:cover;
+box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.apk-info{
+flex:1;
+}
+
+.apk-title{
+font-size:36px;
+font-weight:bold;
+color:#16a34a;
+margin-bottom:8px;
+}
+
+.apk-rating{
+font-size:18px;
+margin-bottom:12px;
+}
+
+.apk-meta{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-bottom:15px;
+}
+
+.apk-badge{
+background:#f5f5f5;
+padding:8px 14px;
+border-radius:10px;
+font-size:14px;
+font-weight:bold;
+}
+
+.apk-desc{
+font-size:16px;
+line-height:1.6;
+color:#555;
+margin-bottom:18px;
 }
 
 .apk-install{
-    display:inline-block;
-    background:#16a34a;
-    color:#fff;
-    text-decoration:none;
-    padding:14px 26px;
-    border-radius:30px;
-    font-weight:bold;
-    margin-top:10px;
+display:block;
+width:100%;
+text-align:center;
+padding:16px;
+background:#16a34a;
+color:#fff;
+text-decoration:none;
+font-size:20px;
+font-weight:bold;
+border-radius:35px;
+box-shadow:0 6px 18px rgba(22,163,74,.35);
+transition:.3s;
 }
 
+.apk-install:hover{
+transform:translateY(-2px);
+background:#12813c;
+}
+
+.apk-footer{
+margin-top:20px;
+padding-top:15px;
+border-top:1px solid #eee;
+display:flex;
+justify-content:space-around;
+font-size:15px;
+color:#555;
+font-weight:bold;
+}
 /* ===== APK CARD MODE HP ===== */
 
 @media (max-width:768px){
@@ -976,26 +1034,51 @@ Buka di Google Maps
 </a>
 <div class="apk-card">
 
+<img src="logo2.png">
+
 <div class="apk-info">
 
-<h2 class="apk-title">📱 <b>Toko Siap Antar</h2>
+<div class="apk-title">
+📱 Toko Siap Antar
+</div>
 
-<p>⭐⭐⭐⭐⭐ 5.0 • 1.000+ Download</p>
+<div class="apk-rating">
+⭐⭐⭐⭐⭐ 5.0 (1.000+ Download)
+</div>
 
-<div>Versi 2.0.0 • 147 MB • Gratis</div>
+<div class="apk-meta">
+
+<div class="apk-badge">
+📦 Versi 2.0.0
+</div>
+
+<div class="apk-badge">
+📁 147 MB
+</div>
+
+<div class="apk-badge">
+🏷 Gratis
+</div>
+
+</div>
 
 <p class="apk-desc">
-Belanja sparepart HP lebih mudah, lebih cepat,
-langsung dari aplikasi Android.
+Belanja sparepart HP lebih mudah, lebih cepat, dan langsung dari aplikasi Android.
 </p>
 
 <a class="apk-install"
 href="https://drive.google.com/uc?export=download&id=1qXggpfMAJW7D-KeETwQw3bGSmi8kLfF8">
-⬇ Install Aplikasi
+⬇ INSTALL APLIKASI
 </a>
 
 <div class="apk-footer">
-✅ Gratis &nbsp;&nbsp; 🛡 Aman &nbsp;&nbsp; 🔄 Update Terbaru
+
+<div>✅ Gratis</div>
+
+<div>🛡 Aman</div>
+
+<div>🔄 Update Terbaru</div>
+
 </div>
 
 </div>
