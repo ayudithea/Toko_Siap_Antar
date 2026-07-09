@@ -1011,30 +1011,89 @@ z-index:999998;
 
 <body>
 
-<!-- MENU HAMBURGER -->
-<div id="menuBtn" onclick="bukaMenu()">☰</div>
+<button id="menuBtn" onclick="bukaMenu()">
+☰
+</button>
+
+<div id="menuOverlay" onclick="tutupMenu()"></div>
 
 <div id="sideMenu">
 
-<div class="menuHeader">
+<div class="menuHead">
 MENU
 <span onclick="tutupMenu()">✕</span>
 </div>
 
-<a href="#kategori">📦 Kategori Produk</a>
+<div class="menuItem" onclick="toggleMenu('kategori')">
+📦 Kategori Produk ▼
+</div>
 
-<a href="mitra.html">🤝 Mitra Usaha</a>
+<div id="kategori" class="subMenu">
 
-<a href="https://www.google.com/maps?q=-6.883831,108.302788" target="_blank">
-📍 Lokasi Toko
-</a>
+<a href="lcd.html">LCD</a>
 
-<a href="afiliasi.html">💰 Afiliator</a>
+<a href="batre.html">Baterai</a>
 
-<a href="about.html">ℹ️ About</a>
+<a href="accessories.html">Accessories</a>
+
+<a href="sparepart.html">Sparepart</a>
+
+<a href="ic.html">IC</a>
+
+<a href="flexible.html">Flexible</a>
+
+<a href="tool.html">Tool</a>
 
 </div>
 
+<div class="menuItem">
+🤝 Mitra Usaha
+</div>
+
+<div class="menuItem" onclick="toggleMenu('lokasi')">
+📍 Lokasi Toko ▼
+</div>
+
+<div id="lokasi" class="subMenu">
+
+<a href="#">Lokasi 1</a>
+<a href="#">Lokasi 2</a>
+<a href="#">Lokasi 3</a>
+<a href="#">Lokasi 4</a>
+<a href="#">Lokasi 5</a>
+<a href="#">Lokasi 6</a>
+<a href="#">Lokasi 7</a>
+<a href="#">Lokasi 8</a>
+<a href="#">Lokasi 9</a>
+<a href="#">Lokasi 10</a>
+
+</div>
+
+<div class="menuItem" onclick="toggleMenu('affiliate')">
+💰 Affiliate ▼
+</div>
+
+<div id="affiliate" class="subMenu">
+
+<a href="#">Affiliate 1</a>
+<a href="#">Affiliate 2</a>
+<a href="#">Affiliate 3</a>
+<a href="#">Affiliate 4</a>
+<a href="#">Affiliate 5</a>
+<a href="#">Affiliate 6</a>
+<a href="#">Affiliate 7</a>
+<a href="#">Affiliate 8</a>
+<a href="#">Affiliate 9</a>
+<a href="#">Affiliate 10</a>
+
+</div>
+
+<div class="menuItem"
+onclick="aboutAPK()">
+ℹ About
+</div>
+
+</div>
 <div id="menuOverlay" onclick="tutupMenu()"></div>
 <div style="width:100%;max-width:1500px;margin:auto;min-height:100vh;">
 <!-- FLOAT CART -->
@@ -1859,7 +1918,91 @@ padding:14px;
 font-size:16px;
 padding:14px 20px;
 }
+/* ===== MENU V15 ===== */
 
+#menuBtn{
+position:fixed;
+left:15px;
+top:15px;
+width:52px;
+height:52px;
+border:none;
+border-radius:12px;
+background:linear-gradient(135deg,#16a34a,#ff9800);
+color:#fff;
+font-size:28px;
+cursor:pointer;
+z-index:999999;
+box-shadow:0 6px 15px rgba(0,0,0,.3);
+}
+
+#menuOverlay{
+display:none;
+position:fixed;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.45);
+z-index:999998;
+}
+
+#sideMenu{
+position:fixed;
+left:-300px;
+top:0;
+width:280px;
+height:100%;
+background:#fff;
+transition:.35s;
+overflow:auto;
+z-index:999999;
+box-shadow:5px 0 20px rgba(0,0,0,.25);
+}
+
+#sideMenu.open{
+left:0;
+}
+
+.menuHead{
+padding:18px;
+background:linear-gradient(135deg,#16a34a,#ff9800);
+color:#fff;
+font-size:22px;
+font-weight:bold;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.menuItem{
+padding:15px 18px;
+border-bottom:1px solid #eee;
+font-weight:bold;
+cursor:pointer;
+}
+
+.menuItem:hover{
+background:#16a34a;
+color:#fff;
+}
+
+.subMenu{
+display:none;
+background:#fafafa;
+}
+
+.subMenu a{
+display:block;
+padding:12px 35px;
+text-decoration:none;
+color:#333;
+border-bottom:1px solid #eee;
+}
+
+.subMenu a:hover{
+background:#e8f5e9;
+}
 }
 </style>
 
@@ -2100,15 +2243,59 @@ function popupSlider(src){
 }
 </script>
 <script>
+
 function bukaMenu(){
-document.getElementById("sideMenu").style.right="0";
+
+document.getElementById("sideMenu").classList.add("open");
+
 document.getElementById("menuOverlay").style.display="block";
+
 }
 
 function tutupMenu(){
-document.getElementById("sideMenu").style.right="-280px";
+
+document.getElementById("sideMenu").classList.remove("open");
+
 document.getElementById("menuOverlay").style.display="none";
+
 }
+
+function toggleMenu(id){
+
+let x=document.getElementById(id);
+
+if(x.style.display=="block"){
+
+x.style.display="none";
+
+}else{
+
+x.style.display="block";
+
+}
+
+}
+
+function aboutAPK(){
+
+popup(`
+
+📱 TOKO SIAP ANTAR
+
+Versi 2.0.0
+
+⭐⭐⭐⭐⭐
+
+Aplikasi belanja sparepart HP.
+
+Download APK melalui menu Install yang tersedia di halaman utama.
+
+`);
+
+tutupMenu();
+
+}
+
 </script>
 </body>
 </html>
