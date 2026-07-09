@@ -482,27 +482,25 @@ an:"YUDI ALIYUDIN"
 };
 function salinRekening(n){
 
-navigator.clipboard.writeText(n).then(()=>{
+    navigator.clipboard.writeText(n).then(()=>{
 
-// Tutup popup transfer
-document.querySelectorAll("div").forEach(el=>{
-    if(el.style.zIndex=="99999"){
-        el.remove();
-    }
-});
+        let btn = event.target;
 
-// Tampilkan popup sukses
-popup(`
-<div style="font-size:48px;">✅</div>
+        let teksAwal = btn.innerHTML;
 
-<p>Nomor rekening berhasil disalin.</p>
+        btn.innerHTML = "✅ Berhasil Disalin";
+        btn.style.background = "#15803d";
+        btn.style.color = "#fff";
 
-<div style="font-size:20px;font-weight:bold;color:#15803d">
-${n}
-</div>
-`);
+        setTimeout(function(){
 
-});
+            btn.innerHTML = teksAwal;
+            btn.style.background = "";
+            btn.style.color = "";
+
+        },2000);
+
+    });
 
 }
 
@@ -514,8 +512,9 @@ bg.innerHTML=`<div style="background:#fff;padding:20px;border-radius:14px;width:
 <b>${bank}</b><br><br>
 Nomor Rekening<br><b>${no}</b><br>
 a.n <b>${an}</b><br><br>
-<button onclick="salinRekening('${no}')" style="padding:10px">📋 Salin</button>
-<hr>
+<button onclick="salinRekening('${no}')" style="padding:10px">
+📋 Salin
+</button>
 <div style="display:flex;gap:8px">
 <button style="flex:1" onclick="document.getElementById('btnPesan').style.display='none';this.closest('div').parentElement.parentElement.remove();if(window._batal)_batal()">Batal</button>
 <button style="flex:1;background:#16a34a;color:#fff" onclick="document.getElementById('btnPesan').style.display='block';this.closest('div').parentElement.parentElement.remove();if(window._ok)_ok()">OK</button>
