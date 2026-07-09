@@ -6,7 +6,115 @@
 <title>A YUDI THEA | Servis Handphone</title>
 
 <style>
+/* ===========================
+   MENU V15
+=========================== */
 
+#menuBtn{
+position:fixed;
+left:15px;
+top:15px;
+width:55px;
+height:55px;
+border:none;
+border-radius:14px;
+background:linear-gradient(135deg,#16a34a,#ff9800);
+color:#fff;
+font-size:28px;
+font-weight:bold;
+cursor:pointer;
+z-index:999999;
+box-shadow:0 6px 20px rgba(0,0,0,.3);
+}
+
+#menuOverlay{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.45);
+z-index:999998;
+}
+
+#sideMenu{
+position:fixed;
+top:0;
+left:-320px;
+width:290px;
+height:100%;
+background:#fff;
+overflow:auto;
+transition:.35s;
+z-index:999999;
+box-shadow:6px 0 25px rgba(0,0,0,.25);
+}
+
+#sideMenu.open{
+left:0;
+}
+
+.menuHeader{
+padding:20px;
+background:linear-gradient(135deg,#16a34a,#ff9800);
+color:#fff;
+font-size:22px;
+font-weight:bold;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.menuClose{
+cursor:pointer;
+font-size:28px;
+}
+
+.menuItem{
+padding:15px 20px;
+border-bottom:1px solid #eee;
+font-weight:bold;
+cursor:pointer;
+background:#fff;
+transition:.2s;
+}
+
+.menuItem:hover{
+background:#16a34a;
+color:#fff;
+}
+
+.subMenu{
+display:none;
+background:#f8f8f8;
+}
+
+.subMenu a{
+display:block;
+padding:12px 30px;
+text-decoration:none;
+color:#444;
+border-bottom:1px solid #eee;
+}
+
+.subMenu a:hover{
+background:#16a34a;
+color:#fff;
+}
+
+@media(max-width:768px){
+
+#menuBtn{
+left:10px;
+top:10px;
+width:48px;
+height:48px;
+font-size:24px;
+}
+
+#sideMenu{
+width:260px;
+}
+
+}
 /* ===== RESET ===== */
 *{
 margin:0;
@@ -924,7 +1032,107 @@ margin-top:15px;
 </head>
 
 <body>
+<button id="menuBtn" onclick="bukaMenu()">☰</button>
 
+<div id="menuOverlay" onclick="tutupMenu()"></div>
+
+<div id="sideMenu">
+
+<div class="menuHeader">
+MENU
+<div class="menuClose" onclick="tutupMenu()">✕</div>
+</div>
+
+<div class="menuItem" onclick="toggleSub('produk')">
+📦 Kategori Produk
+</div>
+
+<div id="produk" class="subMenu">
+
+<a href="lcd.html">LCD</a>
+
+<a href="batre.html">Baterai</a>
+
+<a href="accessories.html">Accessories</a>
+
+<a href="sparepart.html">Sparepart</a>
+
+<a href="ic.html">IC</a>
+
+<a href="flexibel.html">Flexible</a>
+
+<a href="tool.html">Tool</a>
+
+<a href="mesin.html">Mesin</a>
+
+<a href="promo.html">Promo</a>
+
+<a href="index.html">Semua Produk</a>
+
+</div>
+
+<div class="menuItem" onclick="toggleSub('mitra')">
+🤝 Mitra Usaha
+</div>
+
+<div id="mitra" class="subMenu">
+
+<a href="#">Mitra 1</a>
+<a href="#">Mitra 2</a>
+<a href="#">Mitra 3</a>
+<a href="#">Mitra 4</a>
+<a href="#">Mitra 5</a>
+<a href="#">Mitra 6</a>
+<a href="#">Mitra 7</a>
+<a href="#">Mitra 8</a>
+<a href="#">Mitra 9</a>
+<a href="#">Mitra 10</a>
+
+</div>
+
+<div class="menuItem" onclick="toggleSub('lokasi')">
+📍 Lokasi Toko
+</div>
+
+<div id="lokasi" class="subMenu">
+
+<a href="#">Lokasi 1</a>
+<a href="#">Lokasi 2</a>
+<a href="#">Lokasi 3</a>
+<a href="#">Lokasi 4</a>
+<a href="#">Lokasi 5</a>
+<a href="#">Lokasi 6</a>
+<a href="#">Lokasi 7</a>
+<a href="#">Lokasi 8</a>
+<a href="#">Lokasi 9</a>
+<a href="#">Lokasi 10</a>
+
+</div>
+
+<div class="menuItem" onclick="toggleSub('affiliate')">
+💰 Affiliate
+</div>
+
+<div id="affiliate" class="subMenu">
+
+<a href="#">Affiliate 1</a>
+<a href="#">Affiliate 2</a>
+<a href="#">Affiliate 3</a>
+<a href="#">Affiliate 4</a>
+<a href="#">Affiliate 5</a>
+<a href="#">Affiliate 6</a>
+<a href="#">Affiliate 7</a>
+<a href="#">Affiliate 8</a>
+<a href="#">Affiliate 9</a>
+<a href="#">Affiliate 10</a>
+
+</div>
+
+<div class="menuItem" onclick="aboutApp()">
+ℹ About
+</div>
+
+</div>
 <div style="width:100%;max-width:1500px;margin:auto;min-height:100vh;">
 <!-- FLOAT CART -->
 <div id="cartFloat" onclick="window.location.href='cart.html'">
@@ -1989,6 +2197,76 @@ function popupSlider(src){
     document.getElementById("popupSlider").style.display = "flex";
 }
 </script>
+<script>
 
+function bukaMenu(){
+
+document.getElementById("sideMenu").classList.add("open");
+
+document.getElementById("menuOverlay").style.display="block";
+
+}
+
+function tutupMenu(){
+
+document.getElementById("sideMenu").classList.remove("open");
+
+document.getElementById("menuOverlay").style.display="none";
+
+}
+
+function toggleSub(id){
+
+let semua=document.querySelectorAll(".subMenu");
+
+semua.forEach(function(x){
+
+if(x.id!=id){
+
+x.style.display="none";
+
+}
+
+});
+
+let s=document.getElementById(id);
+
+if(s.style.display=="block"){
+
+s.style.display="none";
+
+}else{
+
+s.style.display="block";
+
+}
+
+}
+
+function aboutApp(){
+
+popup(`
+
+📱 TOKO SIAP ANTAR
+
+Versi : 2.0.0
+
+⭐⭐⭐⭐⭐ 5.0
+
+Belanja sparepart HP lebih mudah langsung dari aplikasi Android.
+
+✅ Gratis
+
+🛡 Aman
+
+🔄 Selalu Update
+
+`);
+
+tutupMenu();
+
+}
+
+</script>
 </body>
 </html>
