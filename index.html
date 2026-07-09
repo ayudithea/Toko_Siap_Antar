@@ -730,6 +730,7 @@ width:100%!important;
     padding-bottom:120px!important;
 }
 
+
 /* ===== PRODUK MODE HP V14 ===== */
 @media (max-width:768px){
 
@@ -1153,9 +1154,8 @@ MENU
 
 </div>
 
-<!-- GARIS -->
-<div class="garis"></div>
-<!-- HERO -->
+<div class="content-scroll">
+
 <div class="hero">
 <h2><b>👉TOKO SIAP ANTAR👈<br>Solusi Cepat Saat Stok Darurat</h2>
 <p>Ready Stock • Harga Grosir • Bergaransi</p>
@@ -1939,6 +1939,18 @@ padding:14px;
 .menu-pro a{
 font-size:16px;
 padding:14px 20px;
+}
+.sticky-header{
+    position:sticky;
+    top:0;
+    z-index:9999;
+    background:#fff;
+}
+
+.content-scroll{
+    height:calc(100vh - 275px);
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
 }
 }
    
