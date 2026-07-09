@@ -1953,22 +1953,25 @@ background:#16a34a;
 color:#fff;
 }
 
-.subMenu{
-display:none;
-background:#fafafa;
+.submenu{
+    display:none;
+    padding-left:18px;
+    background:#f8f8f8;
 }
 
-.subMenu a{
-display:block;
-padding:12px 35px;
-text-decoration:none;
-color:#333;
-border-bottom:1px solid #eee;
+.submenu a{
+    display:block;
+    padding:10px 15px;
+    color:#333;
+    text-decoration:none;
+    border-bottom:1px solid #eee;
 }
-.subMenu a:hover{
-background:#e8f5e9;
+
+.submenu a:hover{
+    background:#16a34a;
+    color:#fff;
 }
-}
+}   
 </style>
 
 
@@ -2225,20 +2228,14 @@ document.getElementById("menuOverlay").style.display="none";
 
 }
 
-function toggleMenu(id){
+function toggleSub(id){
+    let sub=document.getElementById(id);
 
-let x=document.getElementById(id);
-
-if(x.style.display=="block"){
-
-x.style.display="none";
-
-}else{
-
-x.style.display="block";
-
-}
-
+    if(sub.style.display==="block"){
+        sub.style.display="none";
+    }else{
+        sub.style.display="block";
+    }
 }
 
 function aboutAPK(){
