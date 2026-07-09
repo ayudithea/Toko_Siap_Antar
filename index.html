@@ -918,13 +918,107 @@ margin-top:15px;
 .hero{
     margin-top:10px;
 }
+/* ===== MENU HAMBURGER ===== */
 
+#menuBtn{
+position:fixed;
+top:15px;
+right:15px;
+width:48px;
+height:48px;
+background:linear-gradient(135deg,#16a34a,#ff9800);
+color:#fff;
+font-size:28px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:12px;
+cursor:pointer;
+z-index:999999;
+box-shadow:0 5px 15px rgba(0,0,0,.25);
+}
+
+#sideMenu{
+position:fixed;
+top:0;
+right:-280px;
+width:260px;
+height:100%;
+background:#fff;
+box-shadow:-5px 0 20px rgba(0,0,0,.25);
+transition:.35s;
+z-index:999999;
+overflow:auto;
+}
+
+#sideMenu a{
+display:block;
+padding:16px 20px;
+text-decoration:none;
+color:#333;
+font-weight:bold;
+border-bottom:1px solid #eee;
+}
+
+#sideMenu a:hover{
+background:#16a34a;
+color:#fff;
+}
+
+.menuHeader{
+padding:18px;
+background:linear-gradient(135deg,#16a34a,#ff9800);
+color:#fff;
+font-size:22px;
+font-weight:bold;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.menuHeader span{
+cursor:pointer;
+font-size:24px;
+}
+
+#menuOverlay{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.45);
+z-index:999998;
+}
 }
 
 </style>
 </head>
 
 <body>
+<!-- MENU HAMBURGER -->
+<div id="menuBtn" onclick="bukaMenu()">☰</div>
+
+<div id="sideMenu">
+
+<div class="menuHeader">
+MENU
+<span onclick="tutupMenu()">✕</span>
+</div>
+
+<a href="#kategori">📦 Kategori Produk</a>
+
+<a href="mitra.html">🤝 Mitra Usaha</a>
+
+<a href="https://www.google.com/maps?q=-6.883831,108.302788" target="_blank">
+📍 Lokasi Toko
+</a>
+
+<a href="afiliasi.html">💰 Afiliator</a>
+
+<a href="about.html">ℹ️ About</a>
+
+</div>
+
+<div id="menuOverlay" onclick="tutupMenu()"></div>
 <div style="width:100%;max-width:1500px;margin:auto;min-height:100vh;">
 <!-- FLOAT CART -->
 <div id="cartFloat" onclick="window.location.href='cart.html'">
@@ -1988,6 +2082,16 @@ function popupSlider(src){
     document.getElementById("popupSlider").style.display = "flex";
 }
 </script>
+<script>
+function bukaMenu(){
+document.getElementById("sideMenu").style.right="0";
+document.getElementById("menuOverlay").style.display="block";
+}
 
+function tutupMenu(){
+document.getElementById("sideMenu").style.right="-280px";
+document.getElementById("menuOverlay").style.display="none";
+}
+</script>
 </body>
 </html>
