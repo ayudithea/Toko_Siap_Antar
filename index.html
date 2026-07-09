@@ -1042,7 +1042,11 @@ margin-top:15px;
 MENU
 <div class="menuClose" onclick="tutupMenu()">✕</div>
 </div>
-
+   
+<div class="menuItem" onclick="refreshHalaman()">
+🔄 Refresh Halaman
+</div>
+   
 <div class="menuItem" onclick="toggleSub('produk')">
 📦 Kategori Produk
 </div>
@@ -2214,6 +2218,13 @@ document.getElementById("sideMenu").classList.remove("open");
 document.getElementById("menuOverlay").style.display="none";
 
 }
+   
+function refreshHalaman(){
+    tutupMenu();
+    setTimeout(function(){
+        location.reload();
+    },200);
+} 
 
 function toggleSub(id){
 
