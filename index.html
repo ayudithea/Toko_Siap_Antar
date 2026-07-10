@@ -2366,5 +2366,17 @@ tutupMenu();
 }
 
 </script>
+<script>
+window.addEventListener("popstate", function () {
+    if (history.length > 1) {
+        history.back();
+    } else {
+        location.href = "index.html";
+    }
+});
+
+// Menambahkan satu riwayat agar tombol kembali bisa ditangani
+history.pushState(null, "", location.href);
+</script>
 </body>
 </html>
