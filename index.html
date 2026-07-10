@@ -1041,6 +1041,10 @@ MENU
 🔄 Refresh Halaman
 </div>
    
+<div class="menuItem" onclick="loginMember()">
+🆔 Member ID
+</div>
+
 <div class="menuItem" onclick="toggleSub('produk')">
 📦 Kategori Produk
 </div>
@@ -2242,6 +2246,53 @@ function refreshHalaman(){
         location.reload();
     },200);
 } 
+function loginMember(){
+
+tutupMenu();
+
+let id = prompt("Masukkan ID Member");
+
+if(!id) return;
+
+const sheet="https://docs.google.com/spreadsheets/d/1H23wsTKmR1grQgSAqULbUCM9wQdfx5u6RHJwrrbROG0/gviz/tq?sheet=MEMBER";
+
+fetch(sheet)
+.then(res=>res.text())
+.then(data=>{
+
+const json=JSON.parse(data.substring(47).slice(0,-2));
+
+const rows=json.table.rows;
+
+let ketemu=false;
+
+rows.forEach(r=>{
+
+let idMember=r.c[0]?.v;   // Kolom A
+
+if(String(idMember).trim()==id.trim()){
+
+ketemu=true;
+
+}
+
+});
+
+if(ketemu){
+
+localStorage.setItem("memberID",id);
+
+window.location.href="member.html";
+
+}else{
+
+popup("❌ ID Member tidak ditemukan.");
+
+}
+
+});
+
+}
 
 function toggleSub(id){
 
