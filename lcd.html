@@ -180,10 +180,37 @@ foto:""
 
 localStorage.setItem("cart",JSON.stringify(cart));
 
-popup.remove();
+popup.innerHTML=`
+<div style="
+background:#fff;
+width:90%;
+max-width:340px;
+padding:20px;
+border-radius:15px;
+text-align:center">
 
-alert("Produk berhasil ditambahkan ke Keranjang");
+<h3 style="color:#16a34a">
+TOKO SIAP ANTAR
+</h3>
 
+<p style="margin:18px 0">
+✅ Produk berhasil ditambahkan ke Keranjang.
+</p>
+
+<button onclick="this.closest('div').parentElement.remove()"
+style="
+width:100%;
+padding:12px;
+border:none;
+background:#16a34a;
+color:#fff;
+border-radius:8px;
+font-weight:bold;">
+OK
+</button>
+
+</div>
+`;
 };
 
 }
