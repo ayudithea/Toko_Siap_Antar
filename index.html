@@ -2327,7 +2327,11 @@ if(ketemu){
 
 localStorage.setItem("memberID",id);
 
-window.location.href="lcd.html";
+box.remove();
+
+setTimeout(function(){
+    window.location.href="lcd.html";
+},100);
 
 }else{
 
