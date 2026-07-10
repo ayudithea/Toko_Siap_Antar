@@ -54,7 +54,7 @@ function tampil(arr){
   if(ab[a]==null)ab[a]=i;
   h+=`<div class="item" id="p${i}">
 <div class="name">${p.nama}</div>
-<div class="price">Rp ${Number(p.harga).toLocaleString("id-ID")}</div>
+<div class="price">Rp ${Math.round(Number(p.harga)).toLocaleString("id-ID")}</div>
 <div class="qty">
 <button onclick="qty(this,-1)">-</button>
 <input value="1" class="q" readonly>
