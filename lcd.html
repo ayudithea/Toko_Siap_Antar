@@ -61,8 +61,15 @@ function tampil(arr){
 <button onclick="qty(this,1)">+</button>
 </div>
 <div class="btns">
-<button class="btn cart" onclick="alert('Hubungkan ke fungsi tambahKeranjang() dari index.html')">🛒 Keranjang</button>
-<button class="btn buy" onclick="alert('Hubungkan ke fungsi beliSekarang() dari index.html')">🛍️ Beli</button>
+<button class="btn cart"
+onclick="simpanKeKeranjang('${p.nama}',${p.harga},this,false)">
+🛒 Keranjang
+</button>
+
+<button class="btn buy"
+onclick="simpanKeKeranjang('${p.nama}',${p.harga},this,true)">
+🛍️ Beli
+</button>
 <a class="btn wa" target="_blank" href="https://wa.me/6282319264646?text=${encodeURIComponent('Halo Admin, saya ingin bertanya tentang '+p.nama)}">💬 WA</a>
 </div></div>`;
  });
@@ -75,6 +82,31 @@ function qty(b,n){let q=b.parentNode.querySelector(".q");let v=parseInt(q.value)
 function filterProduk(){
  const k=document.getElementById("search").value.toLowerCase();
  tampil(data.filter(x=>x.nama.toLowerCase().includes(k)));
+}
+function simpanKeKeranjang(nama,harga,btn,bukaCart){
+
+    let qty=parseInt(
+        btn.parentElement.parentElement.querySelector(".q").value
+    );
+
+    let cart=JSON.parse(localStorage.getItem("cart")) || [];
+
+    let i=cart.findIndex(x=>x.nama===nama);
+
+    if(i>=0){
+        cart[i].qty+=qty;
+    }else{
+        cart.push({
+            nama:nama,
+            harga:Number(harga),
+            qty:qty,
+            foto:""
+        });
+    }
+
+    localStorage.setItem("cart",JSON.stringify(cart));
+
+    window.location.href="cart.html";
 }
 </script>
 </body>
