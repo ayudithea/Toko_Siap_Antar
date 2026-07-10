@@ -2294,6 +2294,78 @@ popup("❌ ID Member tidak ditemukan.");
 
 }
 
+function loginMember(){
+
+tutupMenu();
+
+let id = prompt("Masukkan ID Member");
+
+if(!id) return;
+
+const sheet="https://docs.google.com/spreadsheets/d/1H23wsTKmR1grQgSAqULbUCM9wQdfx5u6RHJwrrbROG0/gviz/tq?sheet=MEMBER";
+
+fetch(sheet)
+.then(res=>res.text())
+.then(data=>{
+
+const json=JSON.parse(data.substring(47).slice(0,-2));
+
+const rows=json.table.rows;
+
+let ketemu=false;
+
+rows.forEach(r=>{
+
+let idMember=r.c[0]?.v;
+
+if(String(idMember).trim()==id.trim()){
+ketemu=true;
+}
+
+});
+
+if(ketemu){
+
+let box=document.createElement("div");
+
+box.style.cssText="position:fixed;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;z-index:99999";
+
+box.innerHTML=`
+<div style="background:#fff;width:90%;max-width:340px;border-radius:15px;padding:20px;text-align:center">
+<h3 style="color:#16a34a">TOKO SIAP ANTAR</h3>
+
+<p style="margin:15px 0">
+✅ ID Member berhasil diverifikasi.<br><br>
+Selamat datang.
+</p>
+
+<button id="okMember"
+style="background:#16a34a;color:#fff;border:none;padding:12px 25px;border-radius:8px;font-weight:bold">
+OK
+</button>
+
+</div>
+`;
+
+document.body.appendChild(box);
+
+document.getElementById("okMember").onclick=function(){
+
+localStorage.setItem("memberID",id);
+
+window.location.href="member.html";
+
+};
+
+}else{
+
+popup("❌ ID Member tidak ditemukan.");
+
+}
+
+});
+
+}
 function toggleSub(id){
 
 let semua=document.querySelectorAll(".subMenu");
