@@ -1542,10 +1542,19 @@ fetch(sheetURL)
 
 const json=JSON.parse(data.substring(47).slice(0,-2));
 
-let rows=json.table.rows;
+let rows = json.table.rows;
+
+// Urutkan harga dari termurah ke termahal
+rows.sort(function(a,b){
+
+    let hargaA = Number(a.c[3]?.v || 0);
+    let hargaB = Number(b.c[3]?.v || 0);
+
+    return hargaA - hargaB;
+
+});
 
 let html="";
-
 rows.forEach(r=>{
 
 let nama=r.c[1]?.v;
