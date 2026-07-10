@@ -68,7 +68,7 @@ fetch(url).then(r=>r.text()).then(t=>{
    if(!r.c)return;
    data.push({
      nama:r.c[1]?.v||"",
-     harga:r.c[3]?.v||0
+     harga:r.c[5]?.v||0
    });
  });
  tampil(data);
