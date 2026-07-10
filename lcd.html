@@ -62,18 +62,33 @@ const url="https://docs.google.com/spreadsheets/d/1H23wsTKmR1grQgSAqULbUCM9wQdfx
 let data=[];
 
 fetch(url).then(r=>r.text()).then(t=>{
+
  const j=JSON.parse(t.substring(47).slice(0,-2));
+
  data=[];
+
  j.table.rows.forEach(r=>{
    if(!r.c)return;
+
    data.push({
      nama:r.c[1]?.v||"",
      harga:r.c[5]?.v||0
    });
+
  });
+
+ // Urutkan dari harga termurah ke termahal
+ data.sort(function(a,b){
+     return Number(a.harga||0) - Number(b.harga||0);
+ });
+
  tampil(data);
+
 }).catch(()=>{
- document.getElementById("list").innerHTML="<center>Data tidak dapat dimuat.<br>Pastikan sheet MEMBER dapat diakses.</center>";
+
+ document.getElementById("list").innerHTML=
+ "<center>Data tidak dapat dimuat.<br>Pastikan sheet MEMBER dapat diakses.</center>";
+
 });
 
 function tampil(arr){
