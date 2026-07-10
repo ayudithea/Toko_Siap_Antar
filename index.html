@@ -2258,6 +2258,58 @@ if(!id) return;
 
 const sheet="https://docs.google.com/spreadsheets/d/1H23wsTKmR1grQgSAqULbUCM9wQdfx5u6RHJwrrbROG0/gviz/tq?sheet=MEMBER";
 
+let box=document.createElement("div");
+
+box.style.cssText="position:fixed;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;z-index:99999";
+
+box.innerHTML=`
+<div style="background:#fff;width:90%;max-width:340px;border-radius:15px;padding:20px;text-align:center">
+
+<h3 style="color:#16a34a">TOKO SIAP ANTAR</h3>
+
+<p>Masukkan ID Member</p>
+
+<input id="idMemberInput"
+type="text"
+placeholder="Masukkan ID Member"
+style="width:100%;padding:12px;border:1px solid #ccc;border-radius:8px;box-sizing:border-box;">
+
+<div style="display:flex;gap:10px;margin-top:15px">
+
+<button id="batalMember"
+style="flex:1;padding:12px;background:#999;color:#fff;border:none;border-radius:8px">
+Batal
+</button>
+
+<button id="loginMemberBtn"
+style="flex:1;padding:12px;background:#16a34a;color:#fff;border:none;border-radius:8px">
+Login
+</button>
+
+</div>
+
+</div>
+`;
+
+document.body.appendChild(box);
+
+document.getElementById("batalMember").onclick=function(){
+    box.remove();
+};
+
+document.getElementById("loginMemberBtn").onclick=function(){
+
+    let id=document.getElementById("idMemberInput").value.trim();
+
+    if(!id){
+        alert("Masukkan ID Member");
+        return;
+    }
+
+    box.remove();
+
+    // lanjutkan kode fetch() yang sudah ada
+
 fetch(sheet)
 .then(res=>res.text())
 .then(data=>{
