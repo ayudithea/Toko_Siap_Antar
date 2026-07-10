@@ -256,6 +256,12 @@ location.reload();
 
 /* ================= CHECKOUT ================= */
 function lanjutBayar(){
+let jam=new Date().getHours();
+
+if(jam<8 || jam>=17){
+    popupJamOperasional();
+    return;
+}
 if(cart.length == 0){
 popup("Keranjang masih kosong");
 return;
@@ -609,6 +615,105 @@ setTimeout(()=>{
 popup("📍 Jika titik tidak tepat, klik peta untuk memilih lokasi manual");
 },2000);
 };
+function popupJamOperasional(){
+
+let box=document.createElement("div");
+
+box.style.cssText=`
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.6);
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:99999;
+`;
+
+box.innerHTML=`
+
+<div style="
+background:#fff;
+width:90%;
+max-width:360px;
+border-radius:18px;
+padding:20px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,.3);
+">
+
+<h2 style="color:#ff6a00;margin:0">
+⏰ TOKO SIAP ANTAR TUTUP
+</h2>
+
+<p style="margin:15px 0;line-height:1.6">
+
+Jam operasional
+<b>08.00 – 17.00 WIB</b>.
+
+<br><br>
+
+Pesanan <b>TOKO SIAP ANTAR</b>
+akan diproses kembali saat jam operasional.
+
+<br><br>
+
+Silakan gunakan layanan berikut agar tetap bisa berbelanja sekarang.
+
+</p>
+
+<button onclick="
+window.open('https://vt.tokopedia.com/t/ZS9MSVbMu7B6U-cNIlB/','_blank')
+"
+style="
+width:100%;
+padding:14px;
+margin-bottom:10px;
+background:#16a34a;
+color:#fff;
+border:none;
+border-radius:10px;
+font-size:16px;
+font-weight:bold;
+">
+📦 VIA EKSPEDISI
+</button>
+
+<button onclick="
+window.open('https://collshp.com/ayudithea','_blank')
+"
+style="
+width:100%;
+padding:14px;
+margin-bottom:10px;
+background:#ff6a00;
+color:#fff;
+border:none;
+border-radius:10px;
+font-size:16px;
+font-weight:bold;
+">
+💰 VIA AFFILIATE
+</button>
+
+<button onclick="this.closest('div').parentElement.remove()"
+style="
+width:100%;
+padding:12px;
+background:#999;
+color:#fff;
+border:none;
+border-radius:10px;
+font-weight:bold;
+">
+Tutup
+</button>
+
+</div>
+`;
+
+document.body.appendChild(box);
+
+}
 </script>
 
 </body>
