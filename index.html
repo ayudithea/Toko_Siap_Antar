@@ -2382,5 +2382,26 @@ window.addEventListener("popstate", function () {
 // Menambahkan satu riwayat agar tombol kembali bisa ditangani
 history.pushState(null, "", location.href);
 </script>
+function toggleSub(id){
+
+    let menu = document.getElementById(id);
+
+    if(menu.style.display==="block"){
+        menu.style.display="none";
+    }else{
+
+        document.querySelectorAll(".subMenu").forEach(function(el){
+            el.style.display="none";
+        });
+
+        menu.style.display="block";
+    }
+
+}
+document.querySelectorAll(".subMenu a").forEach(function(a){
+    a.onclick=function(){
+        tutupMenu();
+    };
+});
 </body>
 </html>
