@@ -1042,7 +1042,7 @@ MENU
 </div>
    
 <div class="menuItem" onclick="loginMember()">
-🆔 Member ID
+🆔 Harga Grosir
 </div>
 
 <div class="menuItem" onclick="toggleSub('produk')">
@@ -2256,8 +2256,7 @@ let id = prompt("Masukkan ID Member");
 
 if(!id) return;
 
-const sheet="https://docs.google.com/spreadsheets/d/1H23wsTKmR1grQgSAqULbUCM9wQdfx5u6RHJwrrbROG0/gviz/tq?sheet=MEMBER";
-
+const sheet="https://docs.google.com/spreadsheets/d/1H23wsTKmR1grQgSAqULbUCM9wQdfx5u6RHJwrrbROG0/gviz/tq?sheet=MEMBER ID";
 fetch(sheet)
 .then(res=>res.text())
 .then(data=>{
@@ -2270,7 +2269,7 @@ let ketemu=false;
 
 rows.forEach(r=>{
 
-let idMember=r.c[0]?.v;
+let idMember=r.c[1]?.v;
 
 if(String(idMember).trim()==id.trim()){
 ketemu=true;
