@@ -2368,20 +2368,11 @@ Belanja sparepart HP lebih mudah langsung dari aplikasi Android.
 tutupMenu();
 
 }
-
-</script>
-<script>
-window.addEventListener("popstate", function () {
-    if (history.length > 1) {
-        history.back();
-    } else {
-        location.href = "index.html";
-    }
+document.querySelectorAll(".subMenu a").forEach(function(a){
+    a.onclick=function(){
+        tutupMenu();
+    };
 });
-
-// Menambahkan satu riwayat agar tombol kembali bisa ditangani
-history.pushState(null, "", location.href);
-</script>
 function toggleSub(id){
 
     let menu = document.getElementById(id);
@@ -2398,10 +2389,7 @@ function toggleSub(id){
     }
 
 }
-document.querySelectorAll(".subMenu a").forEach(function(a){
-    a.onclick=function(){
-        tutupMenu();
-    };
-});
+</script>
+
 </body>
 </html>
