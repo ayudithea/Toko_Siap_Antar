@@ -2252,12 +2252,6 @@ function loginMember(){
 
 tutupMenu();
 
-let id = prompt("Masukkan ID Member");
-
-if(!id) return;
-
-const sheet="https://docs.google.com/spreadsheets/d/1H23wsTKmR1grQgSAqULbUCM9wQdfx5u6RHJwrrbROG0/gviz/tq?sheet=MEMBER";
-
 let box=document.createElement("div");
 
 box.style.cssText="position:fixed;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;z-index:99999";
@@ -2267,26 +2261,27 @@ box.innerHTML=`
 
 <h3 style="color:#16a34a">TOKO SIAP ANTAR</h3>
 
-<p>Masukkan ID Member</p>
+<p style="margin:10px 0;">Masukkan ID Member</p>
 
 <input id="idMemberInput"
-type="text"
-placeholder="Masukkan ID Member"
+placeholder="Contoh : TP00001"
 style="width:100%;padding:12px;border:1px solid #ccc;border-radius:8px;box-sizing:border-box;">
 
 <div style="display:flex;gap:10px;margin-top:15px">
 
 <button id="batalMember"
-style="flex:1;padding:12px;background:#999;color:#fff;border:none;border-radius:8px">
+style="flex:1;padding:12px;border:none;background:#999;color:#fff;border-radius:8px">
 Batal
 </button>
 
 <button id="loginMemberBtn"
-style="flex:1;padding:12px;background:#16a34a;color:#fff;border:none;border-radius:8px">
+style="flex:1;padding:12px;border:none;background:#16a34a;color:#fff;border-radius:8px">
 Login
 </button>
 
 </div>
+
+<div id="pesanMember" style="margin-top:12px;color:red;font-size:13px"></div>
 
 </div>
 `;
@@ -2294,21 +2289,19 @@ Login
 document.body.appendChild(box);
 
 document.getElementById("batalMember").onclick=function(){
-    box.remove();
+box.remove();
 };
 
 document.getElementById("loginMemberBtn").onclick=function(){
 
-    let id=document.getElementById("idMemberInput").value.trim();
+let id=document.getElementById("idMemberInput").value.trim();
 
-    if(!id){
-        alert("Masukkan ID Member");
-        return;
-    }
+if(id==""){
+document.getElementById("pesanMember").innerHTML="Masukkan ID Member.";
+return;
+}
 
-    box.remove();
-
-    // lanjutkan kode fetch() yang sudah ada
+const sheet="https://docs.google.com/spreadsheets/d/1H23wsTKmR1grQgSAqULbUCM9wQdfx5u6RHJwrrbROG0/gviz/tq?sheet=MEMBER ID";
 
 fetch(sheet)
 .then(res=>res.text())
@@ -2324,7 +2317,7 @@ rows.forEach(r=>{
 
 let idMember=r.c[0]?.v;
 
-if(String(idMember).trim()==id.trim()){
+if(String(idMember).trim()==id){
 ketemu=true;
 }
 
@@ -2332,44 +2325,19 @@ ketemu=true;
 
 if(ketemu){
 
-let box=document.createElement("div");
-
-box.style.cssText="position:fixed;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;z-index:99999";
-
-box.innerHTML=`
-<div style="background:#fff;width:90%;max-width:340px;border-radius:15px;padding:20px;text-align:center">
-<h3 style="color:#16a34a">TOKO SIAP ANTAR</h3>
-
-<p style="margin:15px 0">
-✅ ID Member berhasil diverifikasi.<br><br>
-Selamat datang.
-</p>
-
-<button id="okMember"
-style="background:#16a34a;color:#fff;border:none;padding:12px 25px;border-radius:8px;font-weight:bold">
-OK
-</button>
-
-</div>
-`;
-
-document.body.appendChild(box);
-
-document.getElementById("okMember").onclick=function(){
-
 localStorage.setItem("memberID",id);
 
 window.location.href="member.html";
 
-};
-
 }else{
 
-popup("❌ ID Member tidak ditemukan.");
+document.getElementById("pesanMember").innerHTML="❌ ID Member tidak ditemukan.";
 
 }
 
 });
+
+};
 
 }
 
