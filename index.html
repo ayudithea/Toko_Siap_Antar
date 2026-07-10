@@ -2301,7 +2301,7 @@ document.getElementById("pesanMember").innerHTML="Masukkan ID Member.";
 return;
 }
 
-const sheet="https://docs.google.com/spreadsheets/d/1H23wsTKmR1grQgSAqULbUCM9wQdfx5u6RHJwrrbROG0/gviz/tq?sheet=MEMBER ID";
+const sheet="https://docs.google.com/spreadsheets/d/1H23wsTKmR1grQgSAqULbUCM9wQdfx5u6RHJwrrbROG0/gviz/tq?sheet=MEMBER";
 
 fetch(sheet)
 .then(res=>res.text())
@@ -2327,7 +2327,7 @@ if(ketemu){
 
 localStorage.setItem("memberID",id);
 
-window.location.href="member.html";
+window.location.href="lcd.html";
 
 }else{
 
