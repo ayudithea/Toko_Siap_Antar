@@ -62,7 +62,7 @@ function tampil(arr){
 </div>
 <div class="btns">
 <button class="btn cart"
-onclick="simpanKeKeranjang('${p.nama}',${p.harga},this,false)">
+onclick="simpanKeKeranjang('${p.nama}',${p.harga},this)">
 🛒 Keranjang
 </button>
 
@@ -107,6 +107,109 @@ function simpanKeKeranjang(nama,harga,btn,bukaCart){
     localStorage.setItem("cart",JSON.stringify(cart));
 
     window.location.href="cart.html";
+}
+function simpanKeKeranjang(nama,harga,btn){
+
+let qty=parseInt(
+btn.parentElement.parentElement.querySelector(".q").value
+);
+
+let popup=document.createElement("div");
+
+popup.style.cssText=`
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.6);
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:99999;
+`;
+
+popup.innerHTML=`
+<div style="
+background:#fff;
+width:90%;
+max-width:340px;
+padding:20px;
+border-radius:15px;
+text-align:center">
+
+<h3 style="color:#16a34a">
+TOKO SIAP ANTAR
+</h3>
+
+<p style="margin:18px 0">
+Produk akan ditambahkan ke keranjang.
+</p>
+
+<div style="display:flex;gap:10px">
+
+<button id="btnBatal"
+style="
+flex:1;
+padding:12px;
+border:none;
+background:#999;
+color:#fff;
+border-radius:8px;">
+Batal
+</button>
+
+<button id="btnOk"
+style="
+flex:1;
+padding:12px;
+border:none;
+background:#16a34a;
+color:#fff;
+border-radius:8px;">
+OK
+</button>
+
+</div>
+
+</div>
+`;
+
+document.body.appendChild(popup);
+
+document.getElementById("btnBatal").onclick=function(){
+popup.remove();
+};
+
+document.getElementById("btnOk").onclick=function(){
+
+let cart=JSON.parse(localStorage.getItem("cart"))||[];
+
+let i=cart.findIndex(x=>x.nama===nama);
+
+if(i>=0){
+
+cart[i].qty+=qty;
+
+}else{
+
+cart.push({
+nama:nama,
+harga:Number(harga),
+qty:qty,
+foto:""
+});
+
+}
+
+localStorage.setItem("cart",JSON.stringify(cart));
+
+popup.remove();
+
+window.location.href="cart.html";
+
+};
+
 }
 </script>
 </body>
