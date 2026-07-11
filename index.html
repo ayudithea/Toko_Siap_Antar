@@ -1053,21 +1053,21 @@ MENU
 
 <a href="lcd1.html">LCD</a>
 
-<a href="batre.html">Baterai</a>
+<a href="#" onclick="comingSoon()">Baterai</a>
 
-<a href="accessories.html">Accessories</a>
+<a href="#" onclick="comingSoon()">Accessories</a>
 
-<a href="sparepart.html">Sparepart</a>
+<a href="#" onclick="comingSoon()">Sparepart</a>
 
-<a href="ic.html">IC</a>
+<a href="#" onclick="comingSoon()">IC</a>
 
-<a href="flexibel.html">Flexible</a>
+<a href="#" onclick="comingSoon()">Flexible</a>
 
-<a href="tool.html">Tool</a>
+<a href="#" onclick="comingSoon()">Tool</a>
 
-<a href="mesin.html">Mesin</a>
+<a href="#" onclick="comingSoon()">Mesin</a>
 
-<a href="promo.html">Promo</a>
+<a href="#" onclick="comingSoon()">Promo</a>
 
 <a href="index.html">Semua Produk</a>
 
@@ -1079,18 +1079,19 @@ MENU
 
 <div id="mitra" class="subMenu">
 
-<a href="#">Mitra 1</a>
-<a href="#">Mitra 2</a>
-<a href="#">Mitra 3</a>
-<a href="#">Mitra 4</a>
-<a href="#">Mitra 5</a>
-<a href="#">Mitra 6</a>
-<a href="#">Mitra 7</a>
-<a href="#">Mitra 8</a>
-<a href="#">Mitra 9</a>
-<a href="#">Mitra 10</a>
+<a href="#" onclick="comingSoon()">Mitra 1</a>
+<a href="#" onclick="comingSoon()">Mitra 2</a>
+<a href="#" onclick="comingSoon()">Mitra 3</a>
+<a href="#" onclick="comingSoon()">Mitra 4</a>
+<a href="#" onclick="comingSoon()">Mitra 5</a>
+<a href="#" onclick="comingSoon()">Mitra 6</a>
+<a href="#" onclick="comingSoon()">Mitra 7</a>
+<a href="#" onclick="comingSoon()">Mitra 8</a>
+<a href="#" onclick="comingSoon()">Mitra 9</a>
+<a href="#" onclick="comingSoon()">Mitra 10</a>
 
 </div>
+
 
 <div class="menuItem" onclick="toggleSub('lokasi')">
 📍 Lokasi Toko
@@ -2378,6 +2379,21 @@ function toggleSub(id){
 
 }
 </script>
+<script>
+function comingSoon(){
+    event.preventDefault();
 
+    alert(
+`⚠️ INFORMASI
+
+Menu ini masih dalam tahap pengembangan
+atau sedang proses update.
+
+Silakan kunjungi kembali nanti.
+
+Terima kasih 🙏`
+    );
+}
+</script>
 </body>
 </html>
