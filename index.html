@@ -1051,8 +1051,6 @@ MENU
 
 <div id="produk" class="subMenu">
 
-<div id="produk" class="subMenu">
-
 <a href="lcd1.html">LCD</a>
 
 <a href="#" onclick="return comingSoon();">Baterai</a>
@@ -2381,18 +2379,19 @@ function toggleSub(id){
 </script>
 <script>
 function comingSoon(){
-    event.preventDefault();
+    popup(`
+🚧 Menu ini masih dalam tahap pengembangan.
 
-    alert(
-`⚠️ INFORMASI
-
-Menu ini masih dalam tahap pengembangan
-atau sedang proses update.
+Sedang dilakukan proses update.
 
 Silakan kunjungi kembali nanti.
 
-Terima kasih 🙏`
-    );
+Terima kasih 😊
+    `);
+
+    tutupMenu();
+
+    return false;
 }
 </script>
 </body>
