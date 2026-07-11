@@ -1051,7 +1051,6 @@ MENU
 
 <div id="produk" class="subMenu">
 
-<a href="lcd1.html">LCD</a>
 
 <a href="#" onclick="return comingSoon();">Baterai</a>
 
@@ -2355,11 +2354,7 @@ Belanja sparepart HP lebih mudah langsung dari aplikasi Android.
 tutupMenu();
 
 }
-document.querySelectorAll(".subMenu a").forEach(function(a){
-    a.onclick=function(){
-        tutupMenu();
-    };
-});
+
 function toggleSub(id){
 
     let menu = document.getElementById(id);
