@@ -1026,10 +1026,24 @@ margin-top:15px;
 </head>
 
 <body>
-   <div id="fbNotice" style="display:none;position:fixed;top:10px;left:10px;right:10px;background:#fff3cd;color:#856404;padding:12px;border-radius:10px;z-index:999999;text-align:center;font-weight:bold;">
-⚠️ Anda membuka website melalui Facebook.<br>
-Tekan <b>⋮</b> lalu pilih <b>Buka di Browser</b> agar semua fitur berfungsi.
-   </div>
+<div id="fbPopup" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:999999;justify-content:center;align-items:center;">
+  <div style="background:#fff;width:90%;max-width:340px;padding:20px;border-radius:15px;text-align:center;">
+    
+    <img src="logo2.png" style="width:90px;margin-bottom:10px;">
+
+    <h3 style="color:#16a34a;">TOKO SIAP ANTAR</h3>
+
+    <p style="margin:15px 0;line-height:1.5">
+      ⚠️ Anda membuka website melalui <b>Facebook</b>.<br><br>
+      Agar semua fitur seperti <b>Keranjang, Checkout, Peta, dan Pembayaran</b> berjalan normal, silakan tekan <b>⋮</b> di kanan atas lalu pilih <b>Buka di Browser</b>.
+    </p>
+
+    <button onclick="tutupFbPopup()" style="width:100%;padding:12px;background:#16a34a;color:#fff;border:none;border-radius:8px;font-weight:bold;">
+      Saya Mengerti
+    </button>
+
+  </div>
+</div>
 <button id="menuBtn" onclick="bukaMenu()">☰</button>
 
 <div id="menuOverlay" onclick="tutupMenu()"></div>
@@ -2386,9 +2400,13 @@ Terima kasih 😊
 }
 </script>
    <script>
-document.addEventListener("DOMContentLoaded", function () {
-    if (/FBAN|FBAV/i.test(navigator.userAgent)) {
-        document.getElementById("fbNotice").style.display = "block";
+function tutupFbPopup(){
+    document.getElementById("fbPopup").style.display="none";
+}
+
+document.addEventListener("DOMContentLoaded",function(){
+    if(/FBAN|FBAV/i.test(navigator.userAgent)){
+        document.getElementById("fbPopup").style.display="flex";
     }
 });
 </script>
