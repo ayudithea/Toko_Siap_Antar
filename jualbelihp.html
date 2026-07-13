@@ -364,8 +364,6 @@ out += `
 
 <p>📍 ${alamat}</p>
 
-<div class="bottom">
-
 <div class="footer-card">
 
 <div class="harga">
@@ -379,15 +377,14 @@ href="https://wa.me/${wa}?text=${encodeURIComponent('Halo, saya tertarik dengan 
 </a>
 
 </div>
- document.getElementById("list").innerHTML=out;
+
+</div>
+
+</div>
+`;
 });
 
-document.getElementById("cari").onkeyup=function(){
- const f=this.value.toLowerCase();
- document.querySelectorAll(".card").forEach(x=>{
-   x.style.display=x.innerText.toLowerCase().includes(f)?"block":"none";
- });
-}
+document.getElementById("list").innerHTML = out;
 </script>
 </body>
 </html>
