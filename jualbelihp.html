@@ -38,21 +38,28 @@ const sheet="https://docs.google.com/spreadsheets/d/1H23wsTKmR1grQgSAqULbUCM9wQd
 
 function drive(url){
 
-if(!url) return "";
+if(!url) return "logo2.png";
+
+// Jika ada lebih dari satu foto, ambil foto pertama
+url = url.split(",")[0].trim();
 
 let id="";
 
 if(url.includes("/file/d/")){
-id=url.split("/file/d/")[1].split("/")[0];
-}else if(url.includes("/d/")){
-id=url.split("/d/")[1].split("/")[0];
-}else if(url.includes("id=")){
-id=url.split("id=")[1].split("&")[0];
-}else{
-return url;
+    id = url.split("/file/d/")[1].split("/")[0];
+}
+else if(url.includes("/d/")){
+    id = url.split("/d/")[1].split("/")[0];
+}
+else if(url.includes("id=")){
+    id = url.split("id=")[1].split("&")[0];
+}
+else{
+    return url;
 }
 
-return "https://drive.google.com/thumbnail?id="+id+"&sz=w1000";
+return "https://drive.google.com/uc?export=view&id="+id;
+
 }
 
 fetch(sheet).then(r=>r.text()).then(t=>{
