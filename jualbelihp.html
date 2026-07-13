@@ -385,18 +385,17 @@ out += `
   
 <p>📍 ${alamat}</p>  
   
-<div class="harga">  
-Rp ${harga.toLocaleString('id-ID')}  
-</div>  
-  
-<a class="chat"  
-target="_blank"  
-href="https://wa.me/${wa}?text=${encodeURIComponent('Halo, saya tertarik dengan '+nama)}">  
-💬 Chat Penjual  
-</a>  
-  
-</div>  
+<div class="footer-card">
+  <div class="harga">
+    Rp ${harga.toLocaleString('id-ID')}
+  </div>
 
+  <a class="chat"
+     target="_blank"
+     href="https://wa.me/${wa}?text=${encodeURIComponent('Halo, saya tertarik dengan '+nama)}">
+     💬 Chat
+  </a>
+</div>
 </div>`;  
 });  
  document.getElementById("list").innerHTML=out;  
