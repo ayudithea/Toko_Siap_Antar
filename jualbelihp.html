@@ -372,7 +372,7 @@ out += `
 
 <img src="${foto}" onerror="this.src='logo2.png'">
 
-<div class="info">
+<<div class="info">
 
 <h3>${nama}</h3>
 
@@ -380,20 +380,15 @@ out += `
 
 <p>📍 ${alamat}</p>
 
-<div class="footer-card">
-
 <div class="harga">
 Rp ${harga.toLocaleString('id-ID')}
 </div>
 
-<a class="chat"
-target="_blank"
-href="https://wa.me/${wa}?text=${encodeURIComponent('Halo, saya tertarik dengan '+nama)}">
+<a class="chat" ...>
 💬 Chat Penjual
 </a>
 
 </div>
-
 </div>`;
 });
  document.getElementById("list").innerHTML=out;
