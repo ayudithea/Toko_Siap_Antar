@@ -372,25 +372,30 @@ out += `
 
 <img src="${foto}" onerror="this.src='logo2.png'">
 
-<<div class="info">
+<div class="card">
+    <img src="${foto}" onerror="this.src='logo2.png'">
 
-<h3>${nama}</h3>
+    <div class="info">
+        <h3>${nama}</h3>
 
-<p>${desk}</p>
+        <p>${desk}</p>
 
-<p>📍 ${alamat}</p>
+        <p>📍 ${alamat}</p>
 
-<div class="harga">
-Rp ${harga.toLocaleString('id-ID')}
+        <div class="footer-card">
+            <div class="harga">
+                Rp ${harga.toLocaleString('id-ID')}
+            </div>
+
+            <a class="chat"
+               target="_blank"
+               href="https://wa.me/${wa}?text=${encodeURIComponent('Halo, saya tertarik dengan '+nama)}">
+                💬 Chat Penjual
+            </a>
+        </div>
+
+    </div>
 </div>
-
-<a class="chat" ...>
-💬 Chat Penjual
-</a>
-
-</div>
-</div>`;
-});
  document.getElementById("list").innerHTML=out;
 });
 
