@@ -266,8 +266,36 @@ font-size:9px;
 border-radius:5px;
 }
 
+.footer-card{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:6px;
+margin-top:8px;
 }
 
+.harga{
+font-size:15px;
+font-weight:bold;
+color:#ff6a00;
+margin:0;
+}
+
+.chat{
+width:75px;
+height:30px;
+display:flex;
+justify-content:center;
+align-items:center;
+background:#16a34a;
+color:#fff;
+text-decoration:none;
+border-radius:6px;
+font-size:11px;
+padding:0;
+margin:0;
+}
+}
 </style>
 </head>
 <body>
@@ -338,6 +366,8 @@ out += `
 
 <div class="bottom">
 
+<div class="footer-card">
+
 <div class="harga">
 Rp ${harga.toLocaleString('id-ID')}
 </div>
@@ -345,10 +375,10 @@ Rp ${harga.toLocaleString('id-ID')}
 <a class="chat"
 target="_blank"
 href="https://wa.me/${wa}?text=${encodeURIComponent('Halo, saya tertarik dengan '+nama)}">
-💬 Chat Penjual
+💬 Chat
 </a>
-</div>`;
-});
+
+</div>
  document.getElementById("list").innerHTML=out;
 });
 
