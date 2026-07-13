@@ -5,7 +5,74 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Jual Beli HP Second</title>
 <style>
+@media (max-width:768px){
 
+#list{
+display:grid;
+grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+gap:5px;
+padding:5px;
+}
+
+.card{
+width:100%;
+min-width:0;
+border-radius:8px;
+overflow:hidden;
+background:#fff;
+box-shadow:0 2px 5px rgba(0,0,0,.15);
+}
+
+.card img{
+width:100%;
+height:90px;
+object-fit:cover;
+display:block;
+}
+
+.info{
+padding:4px;
+}
+
+.info h3{
+font-size:10px;
+line-height:1.2;
+margin:0 0 2px;
+font-weight:bold;
+display:-webkit-box;
+-webkit-line-clamp:2;
+-webkit-box-orient:vertical;
+overflow:hidden;
+}
+
+.info p{
+font-size:8px;
+margin:1px 0;
+line-height:1.2;
+display:-webkit-box;
+-webkit-line-clamp:2;
+-webkit-box-orient:vertical;
+overflow:hidden;
+}
+
+.harga{
+font-size:10px;
+font-weight:bold;
+color:#ff6a00;
+margin:3px 0;
+}
+
+.chat{
+display:block;
+width:100%;
+padding:5px;
+font-size:9px;
+text-align:center;
+margin-top:4px;
+border-radius:5px;
+}
+
+}
 body{font-family:Arial,sans-serif;background:#f4f4f4;margin:0}
 header{background:#16a34a;color:#fff;padding:15px;text-align:center}
 .top{display:flex;gap:10px;justify-content:center;padding:15px;flex-wrap:wrap}
