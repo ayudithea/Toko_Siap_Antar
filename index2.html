@@ -1025,7 +1025,6 @@ margin-top:15px;
 </style>
 </head>
 
-<body>
 <button id="menuBtn" onclick="bukaMenu()">☰</button>
 
 <div id="menuOverlay" onclick="tutupMenu()"></div>
@@ -1044,12 +1043,10 @@ MENU
 <div class="menuItem" onclick="loginMember()">
 🆔 Harga Member
 </div>
-
 <div class="menuItem"
 onclick="window.location.href='jualbelihp.html'">
 📱 Jual Beli HP Second
 </div>
-
 <div class="menuItem" onclick="toggleSub('produk')">
 📦 Kategori Produk
 </div>
@@ -1083,7 +1080,7 @@ onclick="window.location.href='jualbelihp.html'">
 
 <div id="mitra" class="subMenu">
 
-<a href="https://vt.tokopedia.com/t/ZS9MfX5MjkTQY-OLGjU/" target="_blank">
+<a href="#" onclick="bukaLink('https://vt.tokopedia.com/t/ZS9MCfPULW2WP-yFINb/');return false;">
 1. 🛒 Tukang LCD HP
 </a>
 
@@ -1104,10 +1101,12 @@ onclick="window.location.href='jualbelihp.html'">
 <div class="menuItem" onclick="toggleSub('lokasi')">
 📍 Lokasi Toko
 </div>
-
+    
 <div id="lokasi" class="subMenu">
 
-<a href="#">Lokasi 1</a>
+  <a href="https://share.google/7Prz1ZIyO0VWxSAry" target="_blank">
+   Depan pasar hewan blok jumat Maja utara
+  </a>
 <a href="#">Lokasi 2</a>
 <a href="#">Lokasi 3</a>
 <a href="#">Lokasi 4</a>
@@ -1119,7 +1118,15 @@ onclick="window.location.href='jualbelihp.html'">
 <a href="#">Lokasi 10</a>
 
 </div>
+<div class="menuItem"
+onclick="window.open('https://wa.me/6282319264646','_blank')">
+💬 Chat Admin
+</div>
 
+<div class="menuItem"
+onclick="window.open('https://www.facebook.com/share/1BhC4jhcGc/','_blank')">
+📘 Facebook Toko Siap Antar
+</div>
 
 <div class="menuItem" onclick="window.open('https://drive.google.com/file/d/1Akaqw9e2_YLlw8mKrtc_P8_URJYxIVRv/view?usp=drivesdk','_blank')">
 📲 Download APK
