@@ -376,25 +376,22 @@ out += `
     <img src="${foto}" onerror="this.src='logo2.png'">
 
     <div class="info">
-        <h3>${nama}</h3>
 
-        <p>${desk}</p>
+<h3>${nama}</h3>
 
-        <p>📍 ${alamat}</p>
+<p>${desk}</p>
 
-        <div class="footer-card">
-            <div class="harga">
-                Rp ${harga.toLocaleString('id-ID')}
-            </div>
+<p>📍 ${alamat}</p>
 
-            <a class="chat"
-               target="_blank"
-               href="https://wa.me/${wa}?text=${encodeURIComponent('Halo, saya tertarik dengan '+nama)}">
-                💬 Chat Penjual
-            </a>
-        </div>
+<div class="harga">
+Rp ${harga.toLocaleString('id-ID')}
+</div>
 
-    </div>
+<a class="chat" ...>
+💬 Chat Penjual
+</a>
+
+</div>
 </div>
  `;
 });
