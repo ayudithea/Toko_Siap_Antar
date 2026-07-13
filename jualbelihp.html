@@ -5,19 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Jual Beli HP Second</title>
 <style>
-/* HEADER STICKY */  
-.sticky-header{  
-    position:sticky;  
-    top:0;  
-    z-index:9999;  
-    background:#fff;  
-}  
-  
-/* Supaya produk tidak tertutup */  
-.hero{  
-    margin-top:10px;  
-}  
-}  
+
 /* =========================
    UMUM
 ========================= */
@@ -323,11 +311,19 @@ transition:.2s;
 .chat:hover{
 background:#12863d;
 }
-
+.sticky-top{
+position:sticky;
+top:0;
+z-index:1000;
+background:#f4f4f4;
+padding-bottom:10px;
+}
 }
 </style>
 </head>
 <body>
+<div class="sticky-top">
+
 <header>
 <h2>📱 Jual Beli HP Second</h2>
 <p>Marketplace HP Second - Toko Siap Antar</p>
@@ -340,8 +336,9 @@ background:#12863d;
 
 <input id="cari" placeholder="Cari tipe HP...">
 
+</div>
+
 <div id="list"></div>
-<div class="content-scroll">
 
 <script>
 const sheet="https://docs.google.com/spreadsheets/d/1H23wsTKmR1grQgSAqULbUCM9wQdfx5u6RHJwrrbROG0/gviz/tq?sheet=Produck%20member";
