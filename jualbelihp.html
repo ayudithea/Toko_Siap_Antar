@@ -367,11 +367,11 @@ const alamat = c[4]?.v || "";
 const wa = (c[5]?.v || "").toString().replace(/^0/,"62");
 const foto = drive(c[6]?.v || "");
 
-out += `
-<div class="card">
-
-<img src="${foto}" onerror="this.src='logo2.png'">
-
+out += `  
+<div class="card">  
+  
+<img src="${foto}" onerror="this.src='logo2.png'">  
+  
 <div class="info">
 
 <h3>${nama}</h3>
@@ -379,6 +379,8 @@ out += `
 <p>${desk}</p>
 
 <p>📍 ${alamat}</p>
+
+<div class="footer-card">
 
 <div class="harga">
 Rp ${harga.toLocaleString('id-ID')}
@@ -391,11 +393,12 @@ href="https://wa.me/${wa}?text=${encodeURIComponent('Halo, saya tertarik dengan 
 </a>
 
 </div>
-</div>
-`;
-});
 
-document.getElementById("list").innerHTML = out;
+</div>`;  
+});  
+ document.getElementById("list").innerHTML=out;  
+});  
+  
 document.getElementById("cari").onkeyup=function(){
  const f=this.value.toLowerCase();
  document.querySelectorAll(".card").forEach(x=>{
