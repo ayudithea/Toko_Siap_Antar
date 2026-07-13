@@ -5,88 +5,11 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Jual Beli HP Second</title>
 <style>
-@media (max-width:768px){
 
-header{
-padding:10px;
-}
+/* =========================
+   UMUM
+========================= */
 
-header h2{
-font-size:18px;
-}
-
-header p{
-font-size:12px;
-}
-
-.top{
-gap:8px;
-padding:10px;
-}
-
-a.btn{
-padding:8px 12px;
-font-size:12px;
-}
-
-#cari{
-width:95%;
-padding:10px;
-margin:8px auto;
-}
-
-#list{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:8px;
-padding:8px;
-}
-
-.card{
-background:#fff;
-border-radius:8px;
-overflow:hidden;
-box-shadow:0 2px 5px rgba(0,0,0,.15);
-}
-
-.card img{
-width:100%;
-height:110px;
-object-fit:cover;
-}
-
-.info{
-padding:5px;
-}
-
-.info h3{
-font-size:11px;
-margin:2px 0;
-line-height:1.2;
-}
-
-.info p{
-font-size:9px;
-margin:2px 0;
-line-height:1.2;
-}
-
-.harga{
-font-size:13px;
-font-weight:bold;
-color:#ff6a00;
-margin:4px 0;
-}
-
-.chat{
-display:flex;
-align-items:center;
-justify-content:center;
-height:28px;
-font-size:9px;
-padding:0;
-border-radius:5px;
-}
 body{
 font-family:Arial,sans-serif;
 background:#f4f4f4;
@@ -127,23 +50,25 @@ border-radius:8px;
 display:block;
 margin:0 auto 20px;
 }
+
+.chat{
 display:flex;
 justify-content:center;
 align-items:center;
 width:100%;
-height:42px;
 background:#16a34a;
 color:#fff;
 text-decoration:none;
-border-radius:8px;
-font-size:15px;
 box-sizing:border-box;
 }
-}
-@media screen and (min-width:769px){
 
 
-/* MODE DESKTOP */
+/* =========================
+   MODE DESKTOP
+========================= */
+
+@media (min-width:769px){
+
 #list{
 display:grid;
 grid-template-columns:repeat(4,1fr);
@@ -154,8 +79,8 @@ padding:20px;
 .card{
 background:#fff;
 border-radius:12px;
-box-shadow:0 4px 10px rgba(0,0,0,.15);
 overflow:hidden;
+box-shadow:0 4px 10px rgba(0,0,0,.15);
 }
 
 .card img{
@@ -187,58 +112,102 @@ margin:8px 0;
 }
 
 .chat{
-display:flex;
-justify-content:center;
-align-items:center;
-width:100%;
 height:42px;
-background:#16a34a;
-color:#fff;
-text-decoration:none;
 border-radius:8px;
 font-size:15px;
-box-sizing:border-box;
 }
-body{
-font-family:Arial,sans-serif;
-background:#f4f4f4;
+
+}
+
+
+/* =========================
+   MODE HP
+========================= */
+
+@media (max-width:768px){
+
+header{
+padding:12px;
+}
+
+header h2{
+font-size:20px;
 margin:0;
 }
 
-header{
-background:#16a34a;
-color:#fff;
-padding:20px;
-text-align:center;
+header p{
+font-size:12px;
+margin-top:6px;
 }
 
 .top{
-display:flex;
-justify-content:center;
-align-items:center;
-gap:15px;
-padding:20px;
-flex-wrap:wrap;
+gap:8px;
+padding:10px;
 }
 
 a.btn{
-background:#ff9800;
-color:#fff;
-text-decoration:none;
-padding:12px 22px;
-border-radius:10px;
-font-weight:bold;
+padding:8px 12px;
+font-size:12px;
 }
 
 #cari{
-width:600px;
-max-width:90%;
-padding:12px;
-border:2px solid #16a34a;
-border-radius:8px;
-display:block;
-margin:0 auto 20px;
+width:95%;
+padding:10px;
+margin:10px auto;
 }
+
+#list{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:8px;
+padding:8px;
+}
+
+.card{
+background:#fff;
+border-radius:8px;
+overflow:hidden;
+box-shadow:0 2px 6px rgba(0,0,0,.15);
+}
+
+.card img{
+width:100%;
+height:100px;
+object-fit:cover;
+display:block;
+}
+
+.info{
+padding:5px;
+}
+
+.info h3{
+font-size:11px;
+margin:2px 0;
+line-height:1.2;
+}
+
+.info p{
+font-size:9px;
+margin:2px 0;
+line-height:1.2;
+}
+
+.harga{
+font-size:13px;
+font-weight:bold;
+color:#ff6a00;
+margin:4px 0;
+}
+
+.chat{
+height:28px;
+font-size:9px;
+border-radius:5px;
+}
+
+}
+
 </style>
 </head>
 <body>
