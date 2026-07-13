@@ -36,13 +36,23 @@ a.btn{background:#ff9800;color:#fff;text-decoration:none;padding:10px 18px;borde
 <script>
 const sheet="https://docs.google.com/spreadsheets/d/1H23wsTKmR1grQgSAqULbUCM9wQdfx5u6RHJwrrbROG0/gviz/tq?sheet=Produck%20member";
 
-function drive(u){
- if(!u) return "";
- let id="";
- if(u.includes("/d/")) id=u.split("/d/")[1].split("/")[0];
- else if(u.includes("id=")) id=u.split("id=")[1].split("&")[0];
- else return u;
- return "https://drive.google.com/thumbnail?id="+id+"&sz=w1000";
+function drive(url){
+
+if(!url) return "";
+
+let id="";
+
+if(url.includes("/file/d/")){
+id=url.split("/file/d/")[1].split("/")[0];
+}else if(url.includes("/d/")){
+id=url.split("/d/")[1].split("/")[0];
+}else if(url.includes("id=")){
+id=url.split("id=")[1].split("&")[0];
+}else{
+return url;
+}
+
+return "https://drive.google.com/thumbnail?id="+id+"&sz=w1000";
 }
 
 fetch(sheet).then(r=>r.text()).then(t=>{
