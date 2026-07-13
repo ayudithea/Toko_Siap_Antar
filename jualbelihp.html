@@ -63,15 +63,19 @@ margin:3px 0;
 }
 
 .chat{
-display:block;
+display:flex;
+align-items:center;
+justify-content:center;
 width:100%;
-padding:5px;
-font-size:9px;
-text-align:center;
+height:28px;
+padding:0;
 margin-top:4px;
+font-size:8px;
 border-radius:5px;
-}
-
+box-sizing:border-box;
+white-space:nowrap;
+overflow:hidden;
+text-overflow:ellipsis;
 }
 body{font-family:Arial,sans-serif;background:#f4f4f4;margin:0}
 header{background:#16a34a;color:#fff;padding:15px;text-align:center}
