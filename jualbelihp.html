@@ -396,9 +396,10 @@ out += `
 
     </div>
 </div>
- document.getElementById("list").innerHTML=out;
+ `;
 });
 
+document.getElementById("list").innerHTML = out;
 document.getElementById("cari").onkeyup=function(){
  const f=this.value.toLowerCase();
  document.querySelectorAll(".card").forEach(x=>{
