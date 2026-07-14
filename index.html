@@ -189,8 +189,11 @@ font-family:'Segoe UI',sans-serif;
 }
 
 body{
-background:#f4f6f9;
+background:
+radial-gradient(circle at top,#ffffff,#eefaf1 55%,#dff5e6 100%);
 color:#333;
+overflow-x:hidden;
+}
 
 overflow-x:hidden;
 }
@@ -906,17 +909,12 @@ max-height:95vh!important;
 }  
 
 /* ===== APK CARD V2 ===== */
-
+.hero,
 .apk-card{
-display:flex;
-align-items:center;
-gap:20px;
-background:#fff;
-max-width:900px;
-margin:30px auto;
-padding:25px;
+background:rgba(255,255,255,.95);
 border-radius:20px;
-box-shadow:0 8px 25px rgba(0,0,0,.12);
+box-shadow:0 10px 30px rgba(0,0,0,.12);
+backdrop-filter:blur(8px);
 }
 
 .apk-card img{
