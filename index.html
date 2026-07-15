@@ -212,7 +212,7 @@ background:white;
 display:flex;
 align-items:center;
 justify-content:center;
-height:50px;
+height:460px;
 position:relative;
 overflow:hidden;
 
@@ -585,11 +585,26 @@ cursor:pointer;
 box-shadow:0 4px 10px rgba(0,0,0,0.2);
 }
 .motor-jalan{
-position:relative;
-height:40px;
-margin-bottom:-10px;
-overflow:hidden;
-z-index:5;
+    position:relative;
+    height:50px;
+    margin-bottom:-10px;
+    overflow:hidden;
+    z-index:5;
+
+    /* Warna jalan */
+    background:#555;
+
+    /* Garis putih putus-putus di tengah jalan */
+    background-image:
+      repeating-linear-gradient(
+        to right,
+        transparent 0 20px,
+        #fff 20px 40px
+      );
+
+    background-size:100% 4px;
+    background-repeat:no-repeat;
+    background-position:center;
 }
 
 .motor-kirim{
