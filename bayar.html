@@ -666,6 +666,34 @@ status: "Pesanan dibuat"
 
 localStorage.setItem("riwayatPesanan", JSON.stringify(riwayat));
 
+// ================= SIMPAN KE GOOGLE SHEET =================
+
+let produkText = "";
+
+cart.forEach(p=>{
+  produkText += p.nama + " x" + p.qty + " | ";
+});
+
+fetch("https://script.google.com/macros/s/AKfycbwgzOjyeceNbx_FqQuwtxGKjB3nnY44tI142dcXGMU5PiC54F1Rbx2z-d04KvrSqra80Q/exec",{
+  method:"POST",
+  body:JSON.stringify({
+    idOrder:orderId,
+    tanggal:tanggal,
+    jam:jam,
+    nama:checkoutData.namaPembeli,
+    noWa:noWa,
+    alamat:alamatLengkap,
+    desa:desa,
+    kecamatan:kecamatan,
+    produk:produkText,
+    totalItem:totalItem,
+    totalBarang:total,
+    ongkir:ongkir,
+    totalBayar:totalBayar,
+    metode:metode
+  })
+}).catch(err=>console.log(err));
+
 localStorage.removeItem("cart");
 
 popup("Pesanan dibuat. Menghubungkan ke WhatsApp...");
