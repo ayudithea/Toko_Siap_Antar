@@ -674,25 +674,29 @@ cart.forEach(p=>{
   produkText += p.nama + " x" + p.qty + " | ";
 });
 
-fetch("https://script.google.com/macros/s/AKfycbyTxcLImfweVsege9ASMCzrmOBLiWmLZHdPCOOguozjMMQT_98Kw3ymDPbuNGi3WvZe/exec",{
-  method:"POST",
-  body:JSON.stringify({
-    idOrder:orderId,
-    tanggal:tanggal,
-    jam:jam,
-    nama:checkoutData.namaPembeli,
-    noWa:noWa,
-    alamat:alamatLengkap,
-    desa:desa,
-    kecamatan:kecamatan,
-    produk:produkText,
-    totalItem:totalItem,
-    totalBarang:total,
-    ongkir:ongkir,
-    totalBayar:totalBayar,
-    metode:metode
+fetch("https://script.google.com/macros/s/AKfycby0bUnRmkFSmudF36vqGm8DzA2H5cn-NR0dvNYNXHalYgtXSfXx-FcIgTNFD4wCEKcY/exec", {
+  method: "POST",
+  headers: {
+    "Content-Type": "text/plain;charset=utf-8"
+  },
+  body: JSON.stringify({
+    idOrder: orderId,
+    tanggal: tanggal,
+    jam: jam,
+    nama: checkoutData.namaPembeli,
+    noWa: noWa,
+    alamat: alamatLengkap,
+    desa: desa,
+    kecamatan: kecamatan,
+    produk: produkText,
+    totalItem: totalItem,
+    totalBarang: totalBarang,
+    ongkir: ongkir,
+    totalBayar: totalBayar,
+    metode: metode
   })
-}).catch(err=>console.log(err));
+});
+    .catch(err=>console.log(err));
 
 localStorage.removeItem("cart");
 
