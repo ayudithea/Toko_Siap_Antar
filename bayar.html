@@ -671,11 +671,12 @@ localStorage.setItem("riwayatPesanan", JSON.stringify(riwayat));
 let produkText = "";
 
 cart.forEach(p=>{
-  produkText += p.nama + " x" + p.qty + " | ";
+  produkText += p.nama + " x" + p.qty + "\n";
 });
 
 fetch("https://script.google.com/macros/s/AKfycby0bUnRmkFSmudF36vqGm8DzA2H5cn-NR0dvNYNXHalYgtXSfXx-FcIgTNFD4wCEKcY/exec", {
   method: "POST",
+  mode: "cors",
   headers: {
     "Content-Type": "text/plain;charset=utf-8"
   },
@@ -696,11 +697,34 @@ fetch("https://script.google.com/macros/s/AKfycby0bUnRmkFSmudF36vqGm8DzA2H5cn-NR
     metode: metode
   })
 })
-.then(res => res.text())
-.then(res => console.log("Google Sheet:", res))
-.catch(err => {
-  console.error(err);
-  alert("Gagal mengirim data ke Google Sheet");
+.then(response => response.json())
+.then(result => {
+
+  if(result.status === "success"){
+
+    localStorage.removeItem("cart");
+
+    popup("✅ Pesanan berhasil disimpan");
+
+    window.open(
+      "https://wa.me/6282319264646?text=" + encodeURIComponent(pesan),
+      "_blank"
+    );
+
+    setTimeout(()=>{
+      window.location="index.html";
+    },500);
+
+  }else{
+
+    alert("Gagal menyimpan ke Google Sheet\n\n" + result.message);
+
+  }
+
+})
+.catch(error=>{
+  console.error(error);
+  alert("Tidak dapat terhubung ke Google Sheet");
 });
 
 localStorage.removeItem("cart");
