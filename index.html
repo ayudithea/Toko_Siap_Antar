@@ -873,13 +873,26 @@ width:100%!important;
 }
 
 .popup-bottom{
-flex-direction:column!important;
+    display:flex!important;
+    flex-direction:row!important;
+    align-items:center!important;
+    gap:8px!important;
 }
 
-.popup-icon,
+.popup-icon{
+    width:52px!important;
+    height:52px!important;
+    flex-shrink:0!important;
+}
+
+.popup-icon span{
+    font-size:9px!important;
+}
+
 .popup-checkout{
-width:100%!important;
-height:50px!important;
+    flex:1!important;
+    width:auto!important;
+    height:52px!important;
 }
 
 .zoomBox{
