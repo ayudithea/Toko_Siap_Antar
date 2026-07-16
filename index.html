@@ -1660,15 +1660,53 @@ Rp ${Number(harga).toLocaleString()}
 
 <div style="color:#ffb400;font-size:14px;">⭐⭐⭐⭐⭐</div>
 
-<div style="display:flex;flex-direction:column;gap:6px;margin-top:8px;">
-<button style="background:#10b981;color:#fff;border:none;padding:8px;border-radius:6px;cursor:pointer"
-onclick="window.open('https://wa.me/6282319264646?text='+encodeURIComponent('Halo Admin, saya ingin bertanya tentang ${nama}'),'_blank')">💬 Chat</button>
+<div style="display:flex;flex-direction:column;gap:8px;margin-top:8px;">
 
-<button class="btn-cart"
-onclick="tambahKeranjang('${nama}','${harga}','${foto}')">🛒 Keranjang</button>
+<button
+style="
+background:linear-gradient(180deg,#16c77a,#0fa968);
+color:#fff;
+border:none;
+height:42px;
+border-radius:10px;
+font-weight:bold;
+font-size:15px;
+cursor:pointer;
+box-shadow:0 5px 0 rgba(0,0,0,.35),0 8px 14px rgba(0,0,0,.18);
+"
+onclick="window.open('https://wa.me/6282319264646?text='+encodeURIComponent('Halo Admin, saya ingin bertanya tentang ${nama}'),'_blank')">
+💬 Chat
+</button>
 
-<button style="background:#ff6a00;color:#fff;border:none;padding:8px;border-radius:6px;cursor:pointer"
-onclick="beliSekarang('${nama}','${harga}','${foto}')">🟧 Beli Sekarang</button>
+<button
+class="btn-cart"
+style="
+height:42px;
+border-radius:10px;
+font-weight:bold;
+font-size:15px;
+box-shadow:0 5px 0 rgba(0,0,0,.35),0 8px 14px rgba(0,0,0,.18);
+"
+onclick="tambahKeranjang('${nama}','${harga}','${foto}')">
+🛒 Keranjang
+</button>
+
+<button
+style="
+background:linear-gradient(180deg,#ff8c1a,#ff6600);
+color:#fff;
+border:none;
+height:42px;
+border-radius:10px;
+font-weight:bold;
+font-size:15px;
+cursor:pointer;
+box-shadow:0 5px 0 rgba(0,0,0,.35),0 8px 14px rgba(0,0,0,.18);
+"
+onclick="beliSekarang('${nama}','${harga}','${foto}')">
+🟧 Beli Sekarang
+</button>
+
 </div>
 
 </div>
