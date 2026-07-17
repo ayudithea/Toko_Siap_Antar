@@ -2555,6 +2555,53 @@ function bukaLink(url){
         window.location.href = url;
     }
 }
+function tutupTikTokPopup(){
+    document.getElementById("tiktokPopup").style.display="none";
+}
+
+function bukaBrowserTikTok(){
+
+    let url = window.location.href;
+
+    window.open(url,"_blank");
+
+    setTimeout(function(){
+        window.location.href = url;
+    },500);
+}
+
+document.addEventListener("DOMContentLoaded",function(){
+
+    const ua = navigator.userAgent;
+
+    if(/TikTok/i.test(ua)){
+        document.getElementById("tiktokPopup").style.display="flex";
+    }
+
+});
 </script>
+<div id="tiktokPopup" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:999999;justify-content:center;align-items:center;">
+  <div style="background:#fff;width:90%;max-width:340px;padding:20px;border-radius:15px;text-align:center;">
+
+    <img src="logo2.png" style="width:90px;margin-bottom:10px;">
+
+    <h3 style="color:#16a34a;">TOKO SIAP ANTAR</h3>
+
+    <p style="margin:15px 0;line-height:1.6">
+      ⚠️ Website dibuka melalui <b>TikTok</b>.<br><br>
+
+      Agar fitur <b>Keranjang, Checkout, Peta, Login Member, dan Pembayaran</b> berjalan normal, silakan buka menggunakan <b>Browser</b> seperti Chrome.
+    </p>
+
+    <button onclick="bukaBrowserTikTok()" style="width:100%;padding:12px;background:#16a34a;color:#fff;border:none;border-radius:8px;font-weight:bold;">
+      🌐 Buka di Browser
+    </button>
+
+    <button onclick="tutupTikTokPopup()" style="width:100%;padding:12px;background:#999;color:#fff;border:none;border-radius:8px;font-weight:bold;margin-top:10px;">
+      Nanti Saja
+    </button>
+
+  </div>
+</div>
 </body>
 </html>
