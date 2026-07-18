@@ -2591,24 +2591,7 @@ document.addEventListener("DOMContentLoaded",function(){
     }
 });
 </script>
-<script>
-// Deteksi Browser Facebook & TikTok
-window.onload = function () {
-    var ua = navigator.userAgent.toLowerCase();
 
-    if (ua.includes("fbav") || ua.includes("fban")) {
-        document.getElementById("fbPopup").style.display = "flex";
-    }
-
-    if (ua.includes("tiktok")) {
-        document.getElementById("tiktokPopup").style.display = "flex";
-    }
-};
-
-function tutupTiktokPopup(){
-    document.getElementById("tiktokPopup").style.display="none";
-}
-</script>
 <div id="tiktokPopup" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:999999;justify-content:center;align-items:center;">
     <div style="background:#fff;width:90%;max-width:360px;padding:22px;border-radius:18px;text-align:center;">
         <img src="logo2.png" style="width:95px;margin-bottom:12px;">
@@ -2630,6 +2613,43 @@ function tutupTiktokPopup(){
         
     </div>
 </div>
-  
+  <script>
+function bukaBrowserTikTok(){
+    var url = location.href;
+
+    // Coba buka di Chrome Android
+    location.href =
+    "intent://" + location.host + location.pathname + location.search +
+    "#Intent;scheme=https;package=com.android.chrome;end";
+
+    // Jika gagal, buka browser bawaan
+    setTimeout(function(){
+        window.open(url,"_blank");
+    },800);
+}
+
+function tutupTikTokPopup(){
+    document.getElementById("tiktokPopup").style.display="none";
+}
+
+// Deteksi Browser TikTok
+(function(){
+
+    var ua = navigator.userAgent.toLowerCase();
+
+    if(
+        ua.indexOf("musical_ly")>-1 ||
+        ua.indexOf("bytedance")>-1 ||
+        ua.indexOf("trill")>-1 ||
+        ua.indexOf("tiktok")>-1 ||
+        ua.indexOf("aweme")>-1
+    ){
+        window.addEventListener("load",function(){
+            document.getElementById("tiktokPopup").style.display="flex";
+        });
+    }
+
+})();
+</script>
 </body>
 </html>
