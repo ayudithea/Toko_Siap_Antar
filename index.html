@@ -1160,23 +1160,21 @@ button:active,
 </head>
 
 <body>
-<div id="fbPopup" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:999999;justify-content:center;align-items:center;">
-  <div style="background:#fff;width:90%;max-width:340px;padding:20px;border-radius:15px;text-align:center;">
-    
-    <img src="logo2.png" style="width:90px;margin-bottom:10px;">
-
-    <h3 style="color:#16a34a;">TOKO SIAP ANTAR</h3>
-
-    <p style="margin:15px 0;line-height:1.5">
-      ⚠️ Anda membuka website melalui <b>Facebook</b>.<br><br>
-      Agar semua fitur seperti <b>Keranjang, Checkout, Peta, dan Pembayaran</b> berjalan normal, silakan tekan <b>⋮</b> di kanan atas lalu pilih <b>Buka di Browser</b>.
-    </p>
-
-    <button onclick="tutupFbPopup()" style="width:100%;padding:12px;background:#16a34a;color:#fff;border:none;border-radius:8px;font-weight:bold;">
-      Saya Mengerti
-    </button>
-
-  </div>
+<div id="fbPopup" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:999999;justify-content:center;align-items:center;">
+<div style="background:#fff;width:90%;max-width:360px;padding:22px;border-radius:18px;text-align:center;">
+<img src="logo2.png" style="width:95px;margin-bottom:12px;">
+<h3 style="color:#16a34a;margin-bottom:10px;">TOKO SIAP ANTAR</h3>
+<p style="line-height:1.6;margin-bottom:18px;">
+⚠️ Anda membuka website melalui <b>Browser Facebook</b>.<br><br>
+Agar fitur <b>Lokasi, Keranjang, Checkout, Peta, dan Pembayaran</b> berjalan normal, silakan buka website menggunakan <b>Google Chrome</b>.
+</p>
+<button onclick="bukaChrome()" style="width:100%;padding:13px;background:#16a34a;color:#fff;border:none;border-radius:10px;font-weight:bold;margin-bottom:10px;">
+🌐 Buka di Chrome
+</button>
+<button onclick="tutupFbPopup()" style="width:100%;padding:12px;background:#e5e5e5;color:#333;border:none;border-radius:10px;font-weight:bold;">
+Lanjutkan di Facebook
+</button>
+</div>
 </div>
 <button id="menuBtn" onclick="bukaMenu()">☰</button>
 
@@ -1617,6 +1615,12 @@ return link;
 
 return "https://drive.google.com/thumbnail?id="+id+"&sz=w1000";
 
+}
+
+function bukaChrome(){
+ var url=location.href;
+ location.href='intent://'+location.host+location.pathname+'#Intent;scheme=https;package=com.android.chrome;end';
+ setTimeout(function(){window.open(url,'_blank');},700);
 }
 </script>
 
