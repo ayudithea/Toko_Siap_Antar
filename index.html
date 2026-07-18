@@ -2590,6 +2590,19 @@ document.addEventListener("DOMContentLoaded",function(){
         document.getElementById("fbPopup").style.display="flex";
     }
 });
+</script>
+<script>
+function bukaLink(url){
+    if (window.Android && Android.openExternal) {
+        Android.openExternal(url);
+    } else {
+        window.location.href = url;
+    }
+}
+function tutupTikTokPopup(){
+    document.getElementById("tiktokPopup").style.display="none";
+}
+
 function bukaBrowserTikTok(){
 
     let url = window.location.href;
