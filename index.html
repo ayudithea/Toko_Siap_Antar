@@ -2590,72 +2590,46 @@ document.addEventListener("DOMContentLoaded",function(){
         document.getElementById("fbPopup").style.display="flex";
     }
 });
+function bukaBrowserTikTok(){
+
+    let url = window.location.href;
+
+    window.open(url,"_blank");
+
+    setTimeout(function(){
+        window.location.href = url;
+    },500);
+}
+
+document.addEventListener("DOMContentLoaded",function(){
+
+    const ua = navigator.userAgent;
+
+    if(/TikTok/i.test(ua)){
+        document.getElementById("tiktokPopup").style.display="flex";
+    }
+
+});
 </script>
+<div id="tiktokPopup" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:999999;justify-content:center;align-items:center;">
+  <div style="background:#fff;width:90%;max-width:340px;padding:20px;border-radius:15px;text-align:center;">
 
-<div id="tiktokPopup" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:999999;justify-content:center;align-items:center;">
-  <div style="background:#fff;width:90%;max-width:360px;padding:22px;border-radius:18px;text-align:center;">
+    <img src="logo2.png" style="width:90px;margin-bottom:10px;">
 
-    <img src="logo2.png" style="width:95px;margin-bottom:15px;">
+    <h3 style="color:#16a34a;">TOKO SIAP ANTAR</h3>
 
-    <h2 style="color:#16a34a;margin-bottom:12px;">
-        TOKO SIAP ANTAR
-    </h2>
+    <p style="margin:15px 0;line-height:1.6">
+      ⚠️ Website dibuka melalui <b>TikTok</b>.<br><br>
 
-    <p style="line-height:1.7;color:#444;font-size:15px;">
-
-        ⚠️ Website sedang dibuka melalui
-        <b>Browser TikTok</b>.
-
-        <br><br>
-
-        Agar fitur
-        <b>Keranjang, Checkout, Lokasi, Peta,
-        Login Member dan Pembayaran</b>
-        berjalan normal, silakan buka website
-        menggunakan <b>Google Chrome</b>.
-
-        <br><br>
-
-        <b>Caranya sangat mudah :</b>
-
-        <br><br>
-
-        <span style="font-size:18px;">
-        ① Tekan tombol <b>⋮</b> di pojok kanan atas.
-        <br><br>
-        ② Pilih <b>"Buka di browser"</b>.
-        <br><br>
-        ③ Pilih <b>Google Chrome</b>.
-        </span>
-
+      Agar fitur <b>Keranjang, Checkout, Peta, Login Member, dan Pembayaran</b> berjalan normal, silakan buka menggunakan <b>Browser</b> seperti Chrome.
     </p>
 
-    <div style="
-    background:#fff8e1;
-    border:2px solid #ffc107;
-    border-radius:12px;
-    padding:12px;
-    margin:18px 0;
-    color:#795548;
-    font-size:14px;
-    ">
-        💡 Setelah dibuka di Chrome,
-        seluruh fitur website akan berjalan
-        lebih cepat dan lebih stabil.
-    </div>
+    <button onclick="bukaBrowserTikTok()" style="width:100%;padding:12px;background:#16a34a;color:#fff;border:none;border-radius:8px;font-weight:bold;">
+      🌐 Buka di Browser
+    </button>
 
-    <button onclick="tutupTikTokPopup()"
-    style="
-    width:100%;
-    height:52px;
-    background:#16a34a;
-    color:#fff;
-    border:none;
-    border-radius:12px;
-    font-size:17px;
-    font-weight:bold;
-    ">
-        ✔ Saya Mengerti
+    <button onclick="tutupTikTokPopup()" style="width:100%;padding:12px;background:#999;color:#fff;border:none;border-radius:8px;font-weight:bold;margin-top:10px;">
+      Nanti Saja
     </button>
 
   </div>
