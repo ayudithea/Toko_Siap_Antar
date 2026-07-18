@@ -2592,42 +2592,123 @@ document.addEventListener("DOMContentLoaded",function(){
 });
 </script>
 <script>
-function bukaChrome(){
+// ===============================
+// DETEKSI BROWSER TIKTOK
+// ===============================
 
-    const url = window.location.href;
+function isTikTokBrowser(){
+    const ua = navigator.userAgent.toLowerCase();
 
-    // Android Chrome Intent
-    const chromeIntent =
-    "intent://" +
-    location.host +
-    location.pathname +
-    location.search +
-    location.hash +
-    "#Intent;scheme=https;package=com.android.chrome;end";
-
-    // Coba buka Chrome
-    window.location.href = chromeIntent;
-
-    // Jika gagal, tampilkan pilihan browser Android
-    setTimeout(function(){
-        window.location.href = url;
-    },1200);
+    return (
+        ua.includes("musical_ly") ||
+        ua.includes("bytedance") ||
+        ua.includes("aweme") ||
+        ua.includes("trill") ||
+        ua.includes("tiktok")
+    );
 }
-<script>
-<p style="line-height:1.6;margin-bottom:18px">
-⚠️ Website sedang dibuka melalui <b>Browser TikTok</b>.<br><br>
 
-Agar fitur <b>Keranjang, Checkout, Peta, Login Member, dan Pembayaran</b> berjalan normal, sebaiknya buka website menggunakan <b>Google Chrome</b>.
+window.addEventListener("load",function(){
+
+    if(isTikTokBrowser()){
+        document.getElementById("tiktokPopup").style.display="flex";
+    }
+
+});
+
+function tutupTikTokPopup(){
+    document.getElementById("tiktokPopup").style.display="none";
+}
+</script>
+   <div id="tiktokPopup"
+style="
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.65);
+z-index:999999;
+justify-content:center;
+align-items:center;
+padding:20px;
+">
+
+<div style="
+background:#fff;
+width:100%;
+max-width:360px;
+border-radius:18px;
+padding:22px;
+text-align:center;
+">
+
+<img src="logo2.png"
+style="width:100px;margin-bottom:15px;">
+
+<h2 style="color:#16a34a;margin-bottom:12px;">
+TOKO SIAP ANTAR
+</h2>
+
+<p style="line-height:1.7;color:#444;">
+
+⚠️ Website dibuka melalui
+<b>Browser TikTok</b>.
 
 <br><br>
 
-Tekan titik 3 <b>"Di pojok kanan atas"</b>lalu buka di browser.
+Agar fitur
+<b>Keranjang, Checkout, Login Member,
+Lokasi, Peta, dan Pembayaran</b>
+berjalan normal, buka website menggunakan
+<b>Google Chrome</b>.
+
 </p>
-        <button onclick="bukaChrome()"
-style="width:100%;padding:13px;background:#16a34a;color:#fff;border:none;border-radius:10px;font-weight:bold;margin-bottom:10px;">
-🌐 Buka di Google Chrome
+
+<div style="
+background:#fff8e1;
+border:2px solid #ffc107;
+border-radius:12px;
+padding:14px;
+margin:18px 0;
+text-align:left;
+">
+
+<b>Langkah-langkah:</b>
+
+<br><br>
+
+① Tekan tombol <b>⋮</b>
+di pojok kanan atas.
+
+<br><br>
+
+② Pilih
+<b>Buka di browser</b>.
+
+<br><br>
+
+③ Pilih
+<b>Google Chrome</b>.
+
+</div>
+
+<button
+onclick="tutupTikTokPopup()"
+style="
+width:100%;
+height:52px;
+background:#16a34a;
+color:#fff;
+border:none;
+border-radius:12px;
+font-size:17px;
+font-weight:bold;
+">
+
+✔ Saya Mengerti
+
 </button>
-    </div>
+
+</div>
 </div>
 </body>
 </html>
