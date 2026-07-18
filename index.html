@@ -2592,59 +2592,36 @@ document.addEventListener("DOMContentLoaded",function(){
 });
 </script>
 <script>
-function bukaLink(url){
-    if (window.Android && Android.openExternal) {
-        Android.openExternal(url);
-    } else {
-        window.location.href = url;
-    }
-}
-function tutupTikTokPopup(){
-    document.getElementById("tiktokPopup").style.display="none";
-}
+function bukaChrome(){
 
-function bukaBrowserTikTok(){
+    const url = window.location.href;
 
-    let url = window.location.href;
+    // Android Chrome Intent
+    const chromeIntent =
+    "intent://" +
+    location.host +
+    location.pathname +
+    location.search +
+    location.hash +
+    "#Intent;scheme=https;package=com.android.chrome;end";
 
-    window.open(url,"_blank");
+    // Coba buka Chrome
+    window.location.href = chromeIntent;
 
+    // Jika gagal, tampilkan pilihan browser Android
     setTimeout(function(){
         window.location.href = url;
-    },500);
+    },1200);
 }
-
-document.addEventListener("DOMContentLoaded",function(){
-
-    const ua = navigator.userAgent;
-
-    if(/TikTok/i.test(ua)){
-        document.getElementById("tiktokPopup").style.display="flex";
-    }
-
-});
 </script>
-<div id="tiktokPopup" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:999999;justify-content:center;align-items:center;">
-  <div style="background:#fff;width:90%;max-width:340px;padding:20px;border-radius:15px;text-align:center;">
+<p style="line-height:1.6;margin-bottom:18px">
+⚠️ Website sedang dibuka melalui <b>Browser TikTok</b>.<br><br>
 
-    <img src="logo2.png" style="width:90px;margin-bottom:10px;">
+Agar fitur <b>Keranjang, Checkout, Peta, Login Member, dan Pembayaran</b> berjalan normal, sebaiknya buka website menggunakan <b>Google Chrome</b>.
 
-    <h3 style="color:#16a34a;">TOKO SIAP ANTAR</h3>
+<br><br>
 
-    <p style="margin:15px 0;line-height:1.6">
-      ⚠️ Website dibuka melalui <b>TikTok</b>.<br><br>
-
-      Agar fitur <b>Keranjang, Checkout, Peta, Login Member, dan Pembayaran</b> berjalan normal, silakan buka menggunakan <b>Browser</b> seperti Chrome.
-    </p>
-
-    <button onclick="bukaBrowserTikTok()" style="width:100%;padding:12px;background:#16a34a;color:#fff;border:none;border-radius:8px;font-weight:bold;">
-      🌐 Buka di Browser
-    </button>
-
-    <button onclick="tutupTikTokPopup()" style="width:100%;padding:12px;background:#999;color:#fff;border:none;border-radius:8px;font-weight:bold;margin-top:10px;">
-      Nanti Saja
-    </button>
-
+Tekan titik 3 di pojok kanan atas <b>"pilih > Buka di browser"</b>
   </div>
 </div>
 </body>
