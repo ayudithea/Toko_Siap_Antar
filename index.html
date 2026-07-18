@@ -1679,7 +1679,11 @@ Rp ${Number(harga).toLocaleString()}
 
 <div style="color:#ffb400;font-size:14px;">⭐⭐⭐⭐⭐</div>
 
-<div style="display:flex;flex-direction:column;gap:6px;margin-top:8px;"> <button style="background:#10b981;color:#fff;border:none;padding:8px;border-radius:6px;cursor:pointer" onclick="window.open('https://wa.me/6282232323361?text='+encodeURIComponent('Halo Admin, saya ingin bertanya tentang ${nama}'),'_blank')">💬 Chat</button> <button class="btn-cart" onclick="tambahKeranjang('${nama}','${harga}','${foto}')">🛒 Keranjang</button> <button style="background:#ff6a00;color:#fff;border:none;padding:8px;border-radius:6px;cursor:pointer" onclick="beliSekarang('${nama}','${harga}','${foto}')">🟧 Beli Sekarang</button> </div>
+<div class="popup-bottom">
+<button class="popup-icon" onclick="window.open('https://wa.me/6282232323361?text='+encodeURIComponent('Halo Admin, saya ingin bertanya tentang ${nama}'),'_blank')">💬<span>Chat</span></button>
+<button class="popup-icon" onclick="tambahKeranjang('${nama}','${harga}','${foto}')">🛒<span>Keranjang</span></button>
+<button class="popup-checkout" onclick="beliSekarang('${nama}','${harga}','${foto}')">🟧 Beli Sekarang</button>
+</div>
 
 </div>
 
@@ -2595,13 +2599,9 @@ document.addEventListener("DOMContentLoaded",function(){
       Agar fitur <b>Keranjang, Checkout, Peta, Login Member, dan Pembayaran</b> berjalan normal, silakan buka menggunakan <b>Browser</b> seperti Chrome.
     </p>
 
-    <button onclick="bukaBrowserTikTok()" style="width:100%;padding:12px;background:#16a34a;color:#fff;border:none;border-radius:8px;font-weight:bold;">
-      🌐 Buka di Browser
-    </button>
-
-    <button onclick="tutupTikTokPopup()" style="width:100%;padding:12px;background:#999;color:#fff;border:none;border-radius:8px;font-weight:bold;margin-top:10px;">
-      Nanti Saja
-    </button>
+    <button onclick="bukaChrome()" style="width:100%;padding:13px;background:#16a34a;color:#fff;border:none;border-radius:10px;font-weight:bold;margin-bottom:10px;">
+🌐 Buka di Chrome
+</button>
 
   </div>
 </div>
