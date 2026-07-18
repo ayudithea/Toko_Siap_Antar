@@ -1156,6 +1156,28 @@ button:active,
         0 2px 0 rgba(0,0,0,.45),
         0 4px 10px rgba(0,0,0,.25);
 }
+
+@media (max-width:768px){
+.produk-card .popup-bottom{display:flex!important;flex-direction:row!important;gap:4px!important;margin-top:6px!important}
+.produk-card .popup-icon{
+width:36px!important;
+height:36px!important;
+font-size:15px!important;
+padding:0!important;
+border-radius:8px!important;
+}
+.produk-card .popup-icon span{
+font-size:7px!important;
+margin-top:1px!important;
+}
+.produk-card .popup-checkout{
+height:36px!important;
+font-size:11px!important;
+border-radius:8px!important;
+flex:1!important;
+}
+}
+
 </style>
 </head>
 
@@ -2592,6 +2614,7 @@ document.addEventListener("DOMContentLoaded",function(){
     <img src="logo2.png" style="width:90px;margin-bottom:10px;">
 
     <h3 style="color:#16a34a;">TOKO SIAP ANTAR</h3>
+
     <p style="margin:15px 0;line-height:1.6">
       ⚠️ Website dibuka melalui <b>TikTok</b>.<br><br>
 
@@ -2601,7 +2624,6 @@ document.addEventListener("DOMContentLoaded",function(){
     <button onclick="bukaChrome()" style="width:100%;padding:13px;background:#16a34a;color:#fff;border:none;border-radius:10px;font-weight:bold;margin-bottom:10px;">
 🌐 Buka di Chrome
 </button>
-
   </div>
 </div>
 </body>
