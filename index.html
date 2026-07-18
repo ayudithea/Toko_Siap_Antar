@@ -2593,55 +2593,44 @@ document.addEventListener("DOMContentLoaded",function(){
 });
 </script>
 <script>
-function bukaLink(url){
-    if (window.Android && Android.openExternal) {
-        Android.openExternal(url);
-    } else {
-        window.location.href = url;
+// Deteksi Browser Facebook & TikTok
+window.onload = function () {
+    var ua = navigator.userAgent.toLowerCase();
+
+    if (ua.includes("fbav") || ua.includes("fban")) {
+        document.getElementById("fbPopup").style.display = "flex";
     }
-}
-function tutupTikTokPopup(){
+
+    if (ua.includes("tiktok")) {
+        document.getElementById("tiktokPopup").style.display = "flex";
+    }
+};
+
+function tutupTiktokPopup(){
     document.getElementById("tiktokPopup").style.display="none";
 }
-
-function bukaBrowserTikTok(){
-
-    let url = window.location.href;
-
-    window.open(url,"_blank");
-
-    setTimeout(function(){
-        window.location.href = url;
-    },500);
-}
-
-document.addEventListener("DOMContentLoaded",function(){
-
-    const ua = navigator.userAgent;
-
-    if(/TikTok/i.test(ua)){
-        document.getElementById("tiktokPopup").style.display="flex";
-    }
-
-});
 </script>
-<div id="tiktokPopup" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:999999;justify-content:center;align-items:center;">
-  <div style="background:#fff;width:90%;max-width:340px;padding:20px;border-radius:15px;text-align:center;">
+<div id="tiktokPopup" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:999999;justify-content:center;align-items:center;">
+    <div style="background:#fff;width:90%;max-width:360px;padding:22px;border-radius:18px;text-align:center;">
+        <img src="logo2.png" style="width:95px;margin-bottom:12px;">
 
-    <img src="logo2.png" style="width:90px;margin-bottom:10px;">
+        <h3 style="color:#16a34a;margin-bottom:10px;">
+            TOKO SIAP ANTAR
+        </h3>
 
-    <h3 style="color:#16a34a;">TOKO SIAP ANTAR</h3>
+        <p style="line-height:1.6;margin-bottom:18px;">
+            ⚠️ Anda membuka website melalui <b>Browser TikTok</b>.<br><br>
 
-    <p style="margin:15px 0;line-height:1.6">
-      ⚠️ Website dibuka melalui <b>TikTok</b>.<br><br>
+            Agar fitur <b>Lokasi, Keranjang, Checkout, Peta, dan Pembayaran</b> berjalan normal, silakan buka website menggunakan <b>Google Chrome</b>.
+        </p>
 
-      Agar fitur <b>Keranjang, Checkout, Peta, Login Member, dan Pembayaran</b> berjalan normal, silakan buka menggunakan <b>Browser</b> seperti Chrome.
-    </p>
+        <button onclick="bukaChrome()" style="width:100%;padding:13px;background:#16a34a;color:#fff;border:none;border-radius:10px;font-weight:bold;margin-bottom:10px;">
+            🌐 Buka di Chrome
+        </button>
 
-    <button onclick="bukaChrome()" style="width:100%;padding:13px;background:#16a34a;color:#fff;border:none;border-radius:10px;font-weight:bold;margin-bottom:10px;">
-🌐 Buka di Chrome
-</button>
-  </div>
+        
+    </div>
 </div>
+  
 </body>
 </html>
